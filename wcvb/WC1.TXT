@@ -1,0 +1,586 @@
+null$ = CHR$(255)
+zero$ = CHR$(0)
+
+
+4000
+PRINT "Loading..."
+
+shipship$ = " "
+shipiff$ = " "
+shiporders$ = " "
+shipxcoordbyte1$ = " "
+shipxcoordbyte2$ = " "
+shipxcoordbyte3$ = " "
+shipycoordbyte1$ = " "
+shipycoordbyte2$ = " "
+shipycoordbyte3$ = " "
+shipzcoordbyte1$ = " "
+shipzcoordbyte2$ = " "
+shipzcoordbyte3$ = " "
+shipsize$ = " "
+shipspeed$ = " "
+shippilot$ = " "
+shipsectarget$ = " "
+shipformation$ = " "
+shippritarget$ = " "
+shiponwing$ = " "
+shipfollowship$ = " "
+
+dominant$ = " "
+l$ = " ": mainbyte$ = " ": navxcoordbyte1$ = " ": navxcoordbyte2$ = " ": navxcoordbyte3$ = " "
+navycoordbyte1$ = " ": navycoordbyte2$ = " ": navycoordbyte3$ = " "
+navzcoordbyte1$ = " ": navzcoordbyte2$ = " ": navzcoordbyte3$ = " "
+manip1a$ = " ": manip1b$ = " ": manip2a$ = " ": manip2b$ = " "
+manip3a$ = " ": manip3b$ = " ": manip4a$ = " ": manip4b$ = " "
+image1$ = " ": image2$ = " "
+ship1$ = " ": ship2$ = " ": ship3$ = " ": ship4$ = " ": ship5$ = " "
+ship6$ = " ": ship7$ = " ": ship8$ = " ": ship9$ = " ": ship10$ = " "
+
+1 REM Main Menu
+
+LOCATE 1, 15: PRINT "Welcome to Mario 'HCl' Brito's WC1 mission editor."
+LOCATE 3, 3: PRINT "You're Editing mission "; mn; " of "; module$
+LOCATE 5, 8: PRINT "Please Choose:"
+LOCATE 8, 10: PRINT "2 - View/Edit ships' coordinates"
+LOCATE 9, 9: PRINT " (these coordinates are relative to the NAV the ships are on)"
+LOCATE 11, 10: PRINT "4 - View/Edit a NAV point"
+LOCATE 12, 10: PRINT "5 - View/Edit a NAV point description"
+LOCATE 19, 12: PRINT "When you want to awnser <none> to something, type 255"
+INPUT choice
+
+IF choice = 2 THEN GOTO 4011
+IF choice = 4 THEN GOTO 8000
+IF choice = 5 THEN GOTO 55555
+
+GOTO 1
+
+4011
+
+REM Ships' Description
+INPUT "What's the ship number"; shipnumber
+
+
+IF shipnumber = 0 THEN offset = ((mn - 1) * 1344) + 151325: GOTO 4012
+offset = ((mn - 1) * 1344) + 151325 + 42 * shipnumber
+4012
+lx = 1: ly = 1: lz = 1
+
+
+GET #1, offset + 10, shipxcoordbyte1$
+GET #1, offset + 11, shipxcoordbyte2$
+GET #1, offset + 12, shipxcoordbyte3$
+GET #1, offset + 14, shipycoordbyte1$
+GET #1, offset + 15, shipycoordbyte2$
+GET #1, offset + 16, shipycoordbyte3$
+GET #1, offset + 18, shipzcoordbyte1$
+GET #1, offset + 19, shipzcoordbyte2$
+GET #1, offset + 20, shipzcoordbyte3$
+
+
+shipxcoordbyte1 = ASC(shipxcoordbyte1$)
+shipxcoordbyte2 = ASC(shipxcoordbyte2$)
+shipxcoordbyte3 = ASC(shipxcoordbyte3$)
+
+shipycoordbyte1 = ASC(shipycoordbyte1$)
+shipycoordbyte2 = ASC(shipycoordbyte2$)
+shipycoordbyte3 = ASC(shipycoordbyte3$)
+
+shipzcoordbyte1 = ASC(shipzcoordbyte1$)
+shipzcoordbyte2 = ASC(shipzcoordbyte2$)
+shipzcoordbyte3 = ASC(shipzcoordbyte3$)
+
+IF shipxcoordbyte3 > 150 THEN lx = -1: shipxcoordbyte3 = 255 - shipxcoordbyte3: shipxcoordbyte2 = 255 - shipxcoordbyte2: shipxcoordbyte1 = 256 - shipxcoordbyte1
+
+x = lx * (shipxcoordbyte1 + (shipxcoordbyte2 * 256) + (shipxcoordbyte3 * 65536))
+
+IF shipycoordbyte3 > 150 THEN ly = -1: shipycoordbyte3 = 255 - shipycoordbyte3: shipycoordbyte2 = 255 - shipycoordbyte2: shipycoordbyte1 = 256 - shipycoordbyte1
+
+y = ly * (shipycoordbyte1 + (shipycoordbyte2 * 256) + (shipycoordbyte3 * 65536))
+
+IF shipzcoordbyte3 > 150 THEN lz = -1: shipzcoordbyte3 = 255 - shipzcoordbyte3: shipzcoordbyte2 = 255 - shipzcoordbyte2: shipzcoordbyte1 = 256 - shipzcoordbyte1
+
+z = lz * (shipzcoordbyte1 + (shipzcoordbyte2 * 256) + (shipzcoordbyte3 * 65536))
+
+LOCATE 2, 1: PRINT "Ship"; shipnumber; "coordinates:";
+PRINT "X="; x, "Y="; y, "Z="; z
+PRINT : PRINT : INPUT "Change it"; choice$
+IF choice$ = "n" THEN GOTO 1
+
+REM Routine to change ships coordinates
+lx = 1: ly = 1: lz = 1
+INPUT "X axis"; x
+INPUT "Y axis"; y
+INPUT "Z axis"; z
+
+x$ = HEX$(x)
+y$ = HEX$(y)
+z$ = HEX$(z)
+
+IF LEN(x$) <= 2 THEN shipxcoordbyte1$ = CHR$(x): shipxcoordbyte2$ = CHR$(0): shipxcoordbyte3$ = CHR$(0)
+IF LEN(x$) = 3 THEN xb1$ = RIGHT$(x$, 2): xb2$ = LEFT$(x$, 1): shipxcoordbyte3$ = CHR$(0): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$))
+IF LEN(x$) = 4 THEN xb1$ = RIGHT$(x$, 2): xb2$ = LEFT$(x$, 2): shipxcoordbyte3$ = CHR$(0): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$))
+IF LEN(x$) = 5 THEN xb1$ = RIGHT$(x$, 2): xb3$ = LEFT$(x$, 1): xb2$ = MID$(x$, 2, 2): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$)): shipxcoordbyte3$ = CHR$(VAL("&H" + xb3$))
+IF LEN(x$) = 8 THEN xb1$ = RIGHT$(x$, 2): xb3$ = MID$(x$, 3, 2): xb2$ = MID$(x$, 5, 2): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$)): shipxcoordbyte3$ = CHR$(VAL("&H" + xb3$))
+
+
+IF LEN(y$) <= 2 THEN shipycoordbyte1$ = CHR$(y): shipycoordbyte2$ = CHR$(0): shipycoordbyte3$ = CHR$(0)
+IF LEN(y$) = 3 THEN yb1$ = RIGHT$(y$, 2): yb2$ = LEFT$(y$, 1): shipycoordbyte3$ = CHR$(0): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$))
+IF LEN(y$) = 4 THEN yb1$ = RIGHT$(y$, 2): yb2$ = LEFT$(y$, 2): shipycoordbyte3$ = CHR$(0): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$))
+IF LEN(y$) = 5 THEN yb1$ = RIGHT$(y$, 2): yb3$ = LEFT$(y$, 1): yb2$ = MID$(y$, 2, 2): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$)): shipycoordbyte3$ = CHR$(VAL("&H" + yb3$))
+IF LEN(y$) = 8 THEN yb1$ = RIGHT$(y$, 2): yb3$ = MID$(y$, 3, 2): yb2$ = MID$(y$, 5, 2): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$)): shipycoordbyte3$ = CHR$(VAL("&H" + yb3$))
+
+
+IF LEN(z$) <= 2 THEN shipzcoordbyte1$ = CHR$(z): shipzcoordbyte2$ = CHR$(0): shipzcoordbyte3$ = CHR$(0)
+IF LEN(z$) = 3 THEN zb1$ = RIGHT$(z$, 2): zb2$ = LEFT$(z$, 1): shipzcoordbyte3$ = CHR$(0): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$))
+IF LEN(z$) = 4 THEN zb1$ = RIGHT$(z$, 2): zb2$ = LEFT$(z$, 2): shipzcoordbyte3$ = CHR$(0): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$))
+IF LEN(z$) = 5 THEN zb1$ = RIGHT$(z$, 2): zb3$ = LEFT$(z$, 1): zb2$ = MID$(z$, 2, 2): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$)): shipzcoordbyte3$ = CHR$(VAL("&H" + zb3$))
+IF LEN(z$) = 8 THEN zb1$ = RIGHT$(z$, 2): zb3$ = MID$(z$, 3, 2): zb2$ = MID$(z$, 5, 2): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$)): shipzcoordbyte3$ = CHR$(VAL("&H" + zb3$))
+
+PUT #1, offset + 10, shipxcoordbyte1$
+PUT #1, offset + 11, shipxcoordbyte2$
+PUT #1, offset + 12, shipxcoordbyte3$
+PUT #1, offset + 14, shipycoordbyte1$
+PUT #1, offset + 15, shipycoordbyte2$
+PUT #1, offset + 16, shipycoordbyte3$
+PUT #1, offset + 18, shipzcoordbyte1$
+PUT #1, offset + 19, shipzcoordbyte2$
+PUT #1, offset + 20, shipzcoordbyte3$
+
+GOTO 1
+
+8000
+REM view a nav point
+
+INPUT "What's the NAV number (starting with 0)"; navnumber
+
+
+IF navnumber = 0 THEN offset = ((mn - 1) * 1232) + 6493: GOTO 8001
+offset = ((mn - 1) * 1232) + 6493 + 77 * navnumber
+
+8001
+
+dominant$ = " "
+l$ = " ": mainbyte$ = " ": navxcoordbyte1$ = " ": navxcoordbyte2$ = " ": navxcoordbyte3$ = " "
+navycoordbyte1$ = " ": navycoordbyte2$ = " ": navycoordbyte3$ = " "
+navzcoordbyte1$ = " ": navzcoordbyte2$ = " ": navzcoordbyte3$ = " "
+manip1a$ = " ": manip1b$ = " ": manip2a$ = " ": manip2b$ = " "
+manip3a$ = " ": manip3b$ = " ": manip4a$ = " ": manip4b$ = " "
+image1$ = " ": image2$ = " "
+ship1$ = " ": ship2$ = " ": ship3$ = " ": ship4$ = " ": ship5$ = " "
+ship6$ = " ": ship7$ = " ": ship8$ = " ": ship9$ = " ": ship10$ = " "
+
+
+REM Get the NAV label, label$
+label$ = " "
+switch = 0
+
+FOR i = 0 TO 30
+GET #1, offset + i, l$
+IF l$ <> CHR$(0) AND switch = 0 THEN label$ = label$ + l$
+IF l$ = CHR$(0) THEN label$ = label$ + CHR$(0): switch = 1
+NEXT i
+
+REM Get the more info about that specific nav point
+
+
+GET #1, offset + 30, dominant$
+GET #1, offset + 32, navxcoordbyte1$
+GET #1, offset + 33, navxcoordbyte2$
+GET #1, offset + 34, navxcoordbyte3$
+
+GET #1, offset + 36, navycoordbyte1$
+GET #1, offset + 37, navycoordbyte2$
+GET #1, offset + 38, navycoordbyte3$
+
+GET #1, offset + 40, navzcoordbyte1$
+GET #1, offset + 41, navzcoordbyte2$
+GET #1, offset + 42, navzcoordbyte3$
+
+GET #1, offset + 45, manip1a$
+GET #1, offset + 46, manip1b$
+
+GET #1, offset + 47, manip2a$
+GET #1, offset + 48, manip2b$
+
+GET #1, offset + 49, manip3a$
+GET #1, offset + 50, manip3b$
+
+GET #1, offset + 51, manip4a$
+GET #1, offset + 52, manip4b$
+
+GET #1, offset + 53, image1$
+GET #1, offset + 55, image2$
+
+GET #1, offset + 57, ship1$
+GET #1, offset + 59, ship2$
+GET #1, offset + 61, ship3$
+GET #1, offset + 63, ship4$
+GET #1, offset + 65, ship5$
+GET #1, offset + 67, ship6$
+GET #1, offset + 69, ship7$
+GET #1, offset + 71, ship8$
+GET #1, offset + 73, ship9$
+GET #1, offset + 75, ship10$
+
+PRINT
+PRINT "This NAV label is: "; label$
+PRINT
+IF ASC(dominant$) = 1 THEN PRINT "This is a 'Dominant' NAV point"
+IF ASC(dominant$) > 1 AND ASC(dominant$) < 5 THEN PRINT "This is a 'Follow up' NAV point"
+IF ASC(dominant$) = 0 THEN PRINT "This is a 'Manipulated' NAV point"
+
+
+navxcoordbyte1 = ASC(navxcoordbyte1$)
+navxcoordbyte2 = ASC(navxcoordbyte2$)
+navxcoordbyte3 = ASC(navxcoordbyte3$)
+
+navycoordbyte1 = ASC(navycoordbyte1$)
+navycoordbyte2 = ASC(navycoordbyte2$)
+navycoordbyte3 = ASC(navycoordbyte3$)
+
+navzcoordbyte1 = ASC(navzcoordbyte1$)
+navzcoordbyte2 = ASC(navzcoordbyte2$)
+navzcoordbyte3 = ASC(navzcoordbyte3$)
+lx = 1: ly = 1: lz = 1
+IF navxcoordbyte3 > 150 THEN lx = -1: navxcoordbyte3 = 255 - navxcoordbyte3: navxcoordbyte2 = 255 - navxcoordbyte2: navxcoordbyte1 = 256 - navxcoordbyte1
+
+x = lx * ((navxcoordbyte1) + ((navxcoordbyte2) * 256) + ((navxcoordbyte3) * 65536))
+
+IF navycoordbyte3 > 150 THEN ly = -1: navycoordbyte3 = 255 - navycoordbyte3: navycoordbyte2 = 255 - navycoordbyte2: navycoordbyte1 = 256 - navycoordbyte1
+
+y = ly * ((navycoordbyte1) + (((navycoordbyte2) * 256)) + ((navycoordbyte3) * 65536))
+
+IF navzcoordbyte3 > 150 THEN lz = -1: navzcoordbyte3 = 255 - navzcoordbyte3: navzcoordbyte2 = 255 - navzcoordbyte2: navzcoordbyte1 = 256 - navzcoordbyte1
+
+z = lz * ((navzcoordbyte1) + ((navzcoordbyte2) * 256) + ((navzcoordbyte3) * 65536))
+
+PRINT "Nav"; navnumber; "coordinates:";
+PRINT "X="; x, "Y="; y, "Z="; z
+PRINT
+PRINT "Nav manipulations:"
+IF manip1a$ = CHR$(0) THEN PRINT "Will turn off Nav"; ASC(manip1b$)
+IF manip1a$ = CHR$(1) THEN PRINT "Will turn on Nav"; ASC(manip1b$)
+IF manip1a$ = CHR$(255) THEN PRINT "Won't do anything to Nav"; ASC(manip1b$)
+IF manip2a$ = CHR$(0) THEN PRINT "Will turn off Nav"; ASC(manip2b$)
+IF manip2a$ = CHR$(1) THEN PRINT "Will turn on Nav"; ASC(manip2b$)
+IF manip2a$ = CHR$(255) THEN PRINT "Won't do anything to Nav"; ASC(manip2b$)
+IF manip3a$ = CHR$(0) THEN PRINT "Will turn off Nav"; ASC(manip3b$)
+IF manip3a$ = CHR$(1) THEN PRINT "Will turn on Nav"; ASC(manip3b$)
+IF manip3a$ = CHR$(255) THEN PRINT "Won't do anything to Nav"; ASC(manip3b$)
+IF manip4a$ = CHR$(0) THEN PRINT "Will turn off Nav"; ASC(manip4b$)
+IF manip4a$ = CHR$(1) THEN PRINT "Will turn on Nav"; ASC(manip4b$)
+IF manip4a$ = CHR$(255) THEN PRINT "Won't do anything to Nav"; ASC(manip4b$)
+PRINT
+PRINT "This nav will load ship images "; ASC(image1$); "and "; ASC(image2$)
+PRINT
+PRINT
+
+PRINT "At last: this nav point will 'call' ships: ";
+
+10000 IF ASC(ship1$) = 255 THEN GOTO 20000
+PRINT ASC(ship1$);
+20000 IF ASC(ship2$) = 255 THEN GOTO 30000
+PRINT ASC(ship2$);
+30000 IF ASC(ship3$) = 255 THEN GOTO 40000
+PRINT ASC(ship3$);
+40000 IF ASC(ship4$) = 255 THEN GOTO 50000
+PRINT ASC(ship4$);
+50000 IF ASC(ship5$) = 255 THEN GOTO 60000
+PRINT ASC(ship5$);
+60000 IF ASC(ship6$) = 255 THEN GOTO 70000
+PRINT ASC(ship6$);
+70000 IF ASC(ship7$) = 255 THEN GOTO 80000
+PRINT ASC(ship7$);
+80000 IF ASC(ship8$) = 255 THEN GOTO 90000
+PRINT ASC(ship8$);
+90000 IF ASC(ship9$) = 255 THEN GOTO 100000
+PRINT ASC(ship9$);
+100000 IF ASC(ship10$) = 255 THEN GOTO 110000
+PRINT ASC(ship10$);
+
+110000
+PRINT : INPUT "Change it"; choice$
+IF choice$ = "n" THEN label$ = "": GOTO 1
+
+REM Gonna change Nav point
+PRINT "What do you want to change?"
+PRINT
+PRINT "1 - Label"
+PRINT "2 - Conditon"
+PRINT "3 - Coordinates"
+PRINT "4 - NAV manipulation"
+PRINT "5 - Ship images"
+PRINT "6 - Ships that will appear"
+PRINT "0 - Everything"
+
+INPUT "Well"; choice
+
+4444444444
+
+IF choice = 1 THEN GOTO 44444444441
+IF choice = 2 THEN GOTO 44444444442
+IF choice = 3 THEN GOTO 44444444443
+IF choice = 4 THEN GOTO 44444444444
+IF choice = 5 THEN GOTO 44444444445
+IF choice = 6 THEN GOTO 44444444446
+
+
+
+44444444441
+
+INPUT "What's the new label"; label$
+label$ = label$ + CHR$(0)
+label$ = label$ + CHR$(0)
+IF choice <> 0 THEN GOTO 44444444440
+
+
+44444444442
+INPUT "What's this nav (0=Manipulated; 1=Dominant; 2 to 4=Follow up)"; dominant
+dominant$ = CHR$(dominant)
+IF choice <> 0 THEN GOTO 44444444440
+
+
+
+44444444443
+REM Gonna put coordinates routine here later...
+lx = 1: ly = 1: lz = 1
+INPUT "X axis"; x
+INPUT "Y axis"; y
+INPUT "Z axis"; z
+
+x$ = HEX$(x)
+y$ = HEX$(y)
+z$ = HEX$(z)
+
+IF LEN(x$) <= 2 THEN navxcoordbyte1$ = CHR$(x): navxcoordbyte2$ = CHR$(0): navxcoordbyte3$ = CHR$(0)
+IF LEN(x$) = 3 THEN xb1$ = RIGHT$(x$, 2): xb2$ = LEFT$(x$, 1): navxcoordbyte3$ = CHR$(0): navxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): navxcoordbyte1$ = CHR$(VAL("&H" + xb1$))
+IF LEN(x$) = 4 THEN xb1$ = RIGHT$(x$, 2): xb2$ = LEFT$(x$, 2): navxcoordbyte3$ = CHR$(0): navxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): navxcoordbyte1$ = CHR$(VAL("&H" + xb1$))
+IF LEN(x$) = 5 THEN xb1$ = RIGHT$(x$, 2): xb3$ = LEFT$(x$, 1): xb2$ = MID$(x$, 2, 2): navxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): navxcoordbyte1$ = CHR$(VAL("&H" + xb1$)): navxcoordbyte3$ = CHR$(VAL("&H" + xb3$))
+IF LEN(x$) = 8 THEN xb1$ = RIGHT$(x$, 2): xb2$ = MID$(x$, 5, 2): xb3$ = MID$(x$, 3, 2)
+IF LEN(x$) = 8 THEN navxcoordbyte1$ = CHR$(VAL("&H" + xb1$)): navxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): navxcoordbyte3$ = CHR$(VAL("&H" + xb3$))
+
+IF LEN(y$) <= 2 THEN navycoordbyte1$ = CHR$(y): navycoordbyte2$ = CHR$(0): navycoordbyte3$ = CHR$(0)
+IF LEN(y$) = 3 THEN yb1$ = RIGHT$(y$, 2): yb2$ = LEFT$(y$, 1): navycoordbyte3$ = CHR$(0): navycoordbyte2$ = CHR$(VAL("&H" + yb2$)): navycoordbyte1$ = CHR$(VAL("&H" + yb1$))
+IF LEN(y$) = 4 THEN yb1$ = RIGHT$(y$, 2): yb2$ = LEFT$(y$, 2): navycoordbyte3$ = CHR$(0): navycoordbyte2$ = CHR$(VAL("&H" + yb2$)): navycoordbyte1$ = CHR$(VAL("&H" + yb1$))
+IF LEN(y$) = 5 THEN yb1$ = RIGHT$(y$, 2): yb3$ = LEFT$(y$, 1): yb2$ = MID$(y$, 2, 2): navycoordbyte2$ = CHR$(VAL("&H" + yb2$)): navycoordbyte1$ = CHR$(VAL("&H" + yb1$)): navycoordbyte3$ = CHR$(VAL("&H" + yb3$))
+IF LEN(y$) = 8 THEN yb1$ = RIGHT$(y$, 2): yb2$ = MID$(y$, 5, 2): yb3$ = MID$(y$, 3, 2)
+IF LEN(y$) = 8 THEN navycoordbyte1$ = CHR$(VAL("&H" + yb1$)): navycoordbyte2$ = CHR$(VAL("&H" + yb2$)): navycoordbyte3$ = CHR$(VAL("&H" + yb3$))
+
+IF LEN(z$) <= 2 THEN navzcoordbyte1$ = CHR$(z): navzcoordbyte2$ = CHR$(0): navzcoordbyte3$ = CHR$(0)
+IF LEN(z$) = 3 THEN zb1$ = RIGHT$(z$, 2): zb2$ = LEFT$(z$, 1): navzcoordbyte3$ = CHR$(0): navzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): navzcoordbyte1$ = CHR$(VAL("&H" + zb1$))
+IF LEN(z$) = 4 THEN zb1$ = RIGHT$(z$, 2): zb2$ = LEFT$(z$, 2): navzcoordbyte3$ = CHR$(0): navzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): navzcoordbyte1$ = CHR$(VAL("&H" + zb1$))
+IF LEN(z$) = 5 THEN zb1$ = RIGHT$(z$, 2): zb3$ = LEFT$(z$, 1): zb2$ = MID$(z$, 2, 2): navzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): navzcoordbyte1$ = CHR$(VAL("&H" + zb1$)): navzcoordbyte3$ = CHR$(VAL("&H" + zb3$))
+IF LEN(z$) = 8 THEN zb1$ = RIGHT$(z$, 2): zb2$ = MID$(z$, 5, 2): zb3$ = MID$(z$, 3, 2)
+IF LEN(z$) = 8 THEN navzcoordbyte1$ = CHR$(VAL("&H" + zb1$)): navzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): navzcoordbyte3$ = CHR$(VAL("&H" + zb3$))
+
+
+
+REM Gonna put coordinates routine here later...
+IF choice <> 0 THEN GOTO 44444444440
+
+
+
+44444444444
+
+PRINT "Nav Manipulations: type 1 to turn on and 0 to turn of a nav"
+909090 INPUT "1st manipulation (255 to none)"; manip1a
+IF manip1a = 255 THEN manip1b = 0: GOTO 909091
+INPUT "1st nav"; manip1b
+
+909091 INPUT "2nd manipulation"; manip2a
+IF manip2a = 255 THEN manip2b = 0: GOTO 909092
+INPUT "2nd nav"; manip2b
+
+909092 INPUT "3rd manipulation"; manip3a
+IF manip3a = 255 THEN manip3b = 0: GOTO 909093
+INPUT "3rd nav"; manip3b
+
+909093 INPUT "4th manipulation"; manip4a
+IF manip4a = 255 THEN manip4b = 0: GOTO 909094
+INPUT "4th nav"; manip4b
+
+909094
+manip1a$ = CHR$(manip1a)
+manip1b$ = CHR$(manip1b)
+manip2a$ = CHR$(manip2a)
+manip2b$ = CHR$(manip2b)
+manip3a$ = CHR$(manip3a)
+manip3b$ = CHR$(manip3b)
+manip4a$ = CHR$(manip4a)
+manip4b$ = CHR$(manip4b)
+
+REM continue
+null$ = CHR$(255)
+zero$ = CHR$(0)
+IF choice <> 0 THEN GOTO 44444444440
+
+44444444445
+INPUT "What's the 1st ship image to load"; image1
+INPUT "And the 2nd"; image2
+image1$ = CHR$(image1)
+image2$ = CHR$(image2)
+IF image1 = 255 THEN PUT #1, offset + 54, null$
+IF image2 = 255 THEN PUT #1, offset + 56, null$
+IF image1 <> 255 THEN PUT #1, offset + 54, zero$
+IF image2 <> 255 THEN PUT #1, offset + 56, zero$
+IF choice <> 0 THEN GOTO 44444444440
+
+44444444446
+PRINT
+PRINT
+PRINT "You must now insert the 10 ships that are present in this nav"
+INPUT "What's the 1st ship (type 255 to <none>)"; ship1
+INPUT "And the 2nd"; ship2
+INPUT "And the 3rd"; ship3
+INPUT "And the 4th"; ship4
+INPUT "And the 5th"; ship5
+INPUT "And the 6th"; ship6
+INPUT "And the 7th"; ship7
+INPUT "And the 8th"; ship8
+INPUT "And the 9th"; ship9
+INPUT "And the 10th"; ship10
+
+ship1$ = CHR$(ship1)
+ship2$ = CHR$(ship2)
+ship3$ = CHR$(ship3)
+ship4$ = CHR$(ship4)
+ship5$ = CHR$(ship5)
+ship6$ = CHR$(ship6)
+ship7$ = CHR$(ship7)
+ship8$ = CHR$(ship8)
+ship9$ = CHR$(ship9)
+ship10$ = CHR$(ship10)
+
+IF ship1 = 255 THEN PUT #1, offset + 58, null$
+IF ship2 = 255 THEN PUT #1, offset + 60, null$
+IF ship3 = 255 THEN PUT #1, offset + 62, null$
+IF ship4 = 255 THEN PUT #1, offset + 64, null$
+IF ship5 = 255 THEN PUT #1, offset + 66, null$
+IF ship6 = 255 THEN PUT #1, offset + 68, null$
+IF ship7 = 255 THEN PUT #1, offset + 70, null$
+IF ship8 = 255 THEN PUT #1, offset + 72, null$
+IF ship9 = 255 THEN PUT #1, offset + 74, null$
+IF ship10 = 255 THEN PUT #1, offset + 76, null$
+
+IF ship1 <> 255 THEN PUT #1, offset + 58, zero$
+IF ship2 <> 255 THEN PUT #1, offset + 60, zero$
+IF ship3 <> 255 THEN PUT #1, offset + 62, zero$
+IF ship4 <> 255 THEN PUT #1, offset + 64, zero$
+IF ship5 <> 255 THEN PUT #1, offset + 66, zero$
+IF ship6 <> 255 THEN PUT #1, offset + 68, zero$
+IF ship7 <> 255 THEN PUT #1, offset + 70, zero$
+IF ship8 <> 255 THEN PUT #1, offset + 72, zero$
+IF ship9 <> 255 THEN PUT #1, offset + 74, zero$
+IF ship10 <> 255 THEN PUT #1, offset + 76, zero$
+
+
+44444444440
+
+
+REM save nav
+PUT #1, offset, label$
+PUT #1, offset + 30, dominant$
+PUT #1, offset + 32, navxcoordbyte1$
+PUT #1, offset + 33, navxcoordbyte2$
+PUT #1, offset + 34, navxcoordbyte3$
+
+PUT #1, offset + 36, navycoordbyte1$
+PUT #1, offset + 37, navycoordbyte2$
+PUT #1, offset + 38, navycoordbyte3$
+
+PUT #1, offset + 40, navzcoordbyte1$
+PUT #1, offset + 41, navzcoordbyte2$
+PUT #1, offset + 42, navzcoordbyte3$
+
+PUT #1, offset + 45, manip1a$
+PUT #1, offset + 46, manip1b$
+
+PUT #1, offset + 47, manip2a$
+PUT #1, offset + 48, manip2b$
+
+PUT #1, offset + 49, manip3a$
+PUT #1, offset + 50, manip3b$
+
+PUT #1, offset + 51, manip4a$
+PUT #1, offset + 52, manip4b$
+
+PUT #1, offset + 53, image1$
+PUT #1, offset + 55, image2$
+
+PUT #1, offset + 57, ship1$
+PUT #1, offset + 59, ship2$
+PUT #1, offset + 61, ship3$
+PUT #1, offset + 63, ship4$
+PUT #1, offset + 65, ship5$
+PUT #1, offset + 67, ship6$
+PUT #1, offset + 69, ship7$
+PUT #1, offset + 71, ship8$
+PUT #1, offset + 73, ship9$
+PUT #1, offset + 75, ship10$
+
+GOTO 1
+
+55555
+REM Nav point description
+
+INPUT "What's the NAV description number (starting with 0)"; dnumber
+icon$ = " ": ship$ = " ": l$ = " "
+
+IF dnumber = 0 THEN offset = ((mn - 1) * 1024) + 84509: GOTO 55556
+offset = ((mn - 1) * 1024) + 84509 + 64 * dnumber
+
+55556
+switch = 0
+label$ = " "
+FOR i = 0 TO 58
+GET #1, offset + 4 + i, l$
+IF l$ <> CHR$(0) AND switch = 0 THEN label$ = label$ + l$
+IF l$ = CHR$(0) THEN label$ = label$ + CHR$(0): switch = 1
+NEXT i
+
+GET #1, offset, icon$
+GET #1, offset + 2, ship$
+
+PRINT : PRINT
+PRINT "This nav has the following description: "
+PRINT "' "; label$; " '"
+PRINT : PRINT
+PRINT "It's icon in the nav map is ";
+IF ASC(icon$) = 0 THEN PRINT "a green square";
+IF ASC(icon$) = 1 THEN PRINT "a white triangle (home base icon)";
+IF ASC(icon$) = 2 THEN PRINT "a purple cross (friendly ship icon)";
+IF ASC(icon$) = 3 THEN PRINT "a green circle (friendly ship icon)";
+IF ASC(icon$) = 4 THEN PRINT "a red circle (ememy ship icon)";
+
+IF ASC(icon$) = 0 THEN PRINT " and represents NAV "; ASC(ship$)
+IF ASC(icon$) <> 0 THEN PRINT " and represents ship "; ASC(ship$)
+
+INPUT "Change it "; choice$
+
+IF choice$ = "n" THEN GOTO 1
+
+INPUT "Do you want to deactivate this description"; choice$
+IF choice$ = "y" THEN null$ = CHR$(255) + CHR$(255) + CHR$(255) + CHR$(0) + CHR$(0) + CHR$(0) + CHR$(0): PUT #1, offset, null$: GOTO 1
+
+INPUT "What's the description"; label$
+label$ = label$ + CHR$(0) + CHR$(0)
+PRINT "You now have 5 icons:"
+PRINT "0 - Green Square"
+PRINT "1 - White Triangle"
+PRINT "2 - Purple Cross"
+PRINT "3 - Green Circle"
+PRINT "4 - Red Circle"
+PRINT
+PRINT "The Green Square represents a NAV and all the others represent a ship."
+INPUT "What icon do you want (enter number)"; icon
+icon$ = CHR$(icon)
+PRINT
+INPUT "What's the number of the NAV/ship represented"; ship
+ship$ = CHR$(ship)
+
+PUT #1, offset, icon$
+PUT #1, offset + 1, zero$
+PUT #1, offset + 2, ship$
+PUT #1, offset + 3, zero$
+PUT #1, offset + 4, label$
+GOTO 1

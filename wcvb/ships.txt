@@ -1,0 +1,19 @@
+GET #1, offset + 10, shipxcoordbyte1$
+GET #1, offset + 11, shipxcoordbyte2$
+GET #1, offset + 12, shipxcoordbyte3$
+GET #1, offset + 14, shipycoordbyte1$
+GET #1, offset + 15, shipycoordbyte2$
+GET #1, offset + 16, shipycoordbyte3$
+GET #1, offset + 18, shipzcoordbyte1$
+GET #1, offset + 19, shipzcoordbyte2$
+GET #1, offset + 20, shipzcoordbyte3$
+
+PUT #1, offset + 10, shipxcoordbyte1$
+PUT #1, offset + 11, shipxcoordbyte2$
+PUT #1, offset + 12, shipxcoordbyte3$
+PUT #1, offset + 14, shipycoordbyte1$
+PUT #1, offset + 15, shipycoordbyte2$
+PUT #1, offset + 16, shipycoordbyte3$
+PUT #1, offset + 18, shipzcoordbyte1$
+PUT #1, offset + 19, shipzcoordbyte2$
+PUT #1, offset + 20, shipzcoordbyte3$

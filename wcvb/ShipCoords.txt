@@ -1,0 +1,33 @@
+x$ = HEX$(x)
+y$ = HEX$(y)
+z$ = HEX$(z)
+
+IF LEN(x$) <= 2 THEN shipxcoordbyte1$ = CHR$(x): shipxcoordbyte2$ = CHR$(0): shipxcoordbyte3$ = CHR$(0)
+IF LEN(x$) = 3 THEN xb1$ = RIGHT$(x$, 2): xb2$ = LEFT$(x$, 1): shipxcoordbyte3$ = CHR$(0): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$))
+IF LEN(x$) = 4 THEN xb1$ = RIGHT$(x$, 2): xb2$ = LEFT$(x$, 2): shipxcoordbyte3$ = CHR$(0): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$))
+IF LEN(x$) = 5 THEN xb1$ = RIGHT$(x$, 2): xb3$ = LEFT$(x$, 1): xb2$ = MID$(x$, 2, 2): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$)): shipxcoordbyte3$ = CHR$(VAL("&H" + xb3$))
+IF LEN(x$) = 8 THEN xb1$ = RIGHT$(x$, 2): xb3$ = MID$(x$, 3, 2): xb2$ = MID$(x$, 5, 2): shipxcoordbyte2$ = CHR$(VAL("&H" + xb2$)): shipxcoordbyte1$ = CHR$(VAL("&H" + xb1$)): shipxcoordbyte3$ = CHR$(VAL("&H" + xb3$))
+
+
+IF LEN(y$) <= 2 THEN shipycoordbyte1$ = CHR$(y): shipycoordbyte2$ = CHR$(0): shipycoordbyte3$ = CHR$(0)
+IF LEN(y$) = 3 THEN yb1$ = RIGHT$(y$, 2): yb2$ = LEFT$(y$, 1): shipycoordbyte3$ = CHR$(0): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$))
+IF LEN(y$) = 4 THEN yb1$ = RIGHT$(y$, 2): yb2$ = LEFT$(y$, 2): shipycoordbyte3$ = CHR$(0): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$))
+IF LEN(y$) = 5 THEN yb1$ = RIGHT$(y$, 2): yb3$ = LEFT$(y$, 1): yb2$ = MID$(y$, 2, 2): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$)): shipycoordbyte3$ = CHR$(VAL("&H" + yb3$))
+IF LEN(y$) = 8 THEN yb1$ = RIGHT$(y$, 2): yb3$ = MID$(y$, 3, 2): yb2$ = MID$(y$, 5, 2): shipycoordbyte2$ = CHR$(VAL("&H" + yb2$)): shipycoordbyte1$ = CHR$(VAL("&H" + yb1$)): shipycoordbyte3$ = CHR$(VAL("&H" + yb3$))
+
+
+IF LEN(z$) <= 2 THEN shipzcoordbyte1$ = CHR$(z): shipzcoordbyte2$ = CHR$(0): shipzcoordbyte3$ = CHR$(0)
+IF LEN(z$) = 3 THEN zb1$ = RIGHT$(z$, 2): zb2$ = LEFT$(z$, 1): shipzcoordbyte3$ = CHR$(0): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$))
+IF LEN(z$) = 4 THEN zb1$ = RIGHT$(z$, 2): zb2$ = LEFT$(z$, 2): shipzcoordbyte3$ = CHR$(0): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$))
+IF LEN(z$) = 5 THEN zb1$ = RIGHT$(z$, 2): zb3$ = LEFT$(z$, 1): zb2$ = MID$(z$, 2, 2): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$)): shipzcoordbyte3$ = CHR$(VAL("&H" + zb3$))
+IF LEN(z$) = 8 THEN zb1$ = RIGHT$(z$, 2): zb3$ = MID$(z$, 3, 2): zb2$ = MID$(z$, 5, 2): shipzcoordbyte2$ = CHR$(VAL("&H" + zb2$)): shipzcoordbyte1$ = CHR$(VAL("&H" + zb1$)): shipzcoordbyte3$ = CHR$(VAL("&H" + zb3$))
+
+PUT #1, offset + 10, shipxcoordbyte1$
+PUT #1, offset + 11, shipxcoordbyte2$
+PUT #1, offset + 12, shipxcoordbyte3$
+PUT #1, offset + 14, shipycoordbyte1$
+PUT #1, offset + 15, shipycoordbyte2$
+PUT #1, offset + 16, shipycoordbyte3$
+PUT #1, offset + 18, shipzcoordbyte1$
+PUT #1, offset + 19, shipzcoordbyte2$
+PUT #1, offset + 20, shipzcoordbyte3$

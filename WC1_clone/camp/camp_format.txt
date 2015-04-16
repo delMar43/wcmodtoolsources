@@ -1,0 +1,60 @@
+first four bytes are filesize, LSB first, little endian.
+
+next is a table; entries take up four bytes each
+each entry in the table points to a block at some other location in the file; three entries per camp file
+
+first block:
+Eight bytes per mission slot.  Empty slots are always 255, 255, 0, 0, 0, 0, 0, 0, but some occupied slots have those values too
+Looks like four two-byte values per mission.  Not clear as to the significance.
+First int is usually between 0 and 10.  SM2 they can go higher, usually between 10 and 27.
+First number is background image during the mission, remaining numbers are location of image in some way?
+
+
+second block:
+90 bytes per series.
+First ten are series information.
+0: wingman
+1: always 0 (may form INT with 0)
+2: number of missions in series
+3/4: victory points for the series (-1 if there are no victory points; can be ridiculously high for some unwinnable series)
+5: in Vega is -1 for top of tree, 64 & 65 for bottom of tree, otherwise represents level of mission tree; in other campaigns there are more -1's inserted; cutscene triggers?
+6: series destination if series victory
+7: ship flown in next series if series victory
+8: series destination if series loss
+9: ship flown in next series if series loss
+
+
+Remaining eighty are divided into twenty per mission slot.
+0/1: medal that can be acquired
+2/3: kill points required to get a medal; very large in missions where no medal is intended to be available
+4-15: victory points per objective
+16-19: UNKNOWN, always zero
+
+MEDALS
+0: BRONZE
+1: SILVER
+2: GOLD
+3: SUN?
+4: VALOR
+
+
+third block:
+This is who is in the bar before a mission
+13 blocks of eight bytes
+Each block of eight is a mission series
+Max four missions per series, two bytes per mission, one for each seat in the bar; left first, then right
+
+-1: Empty
+0 : Spirit
+1 : Hunter
+2 : Bossman/Jazz
+3 : Iceman
+4 : Angel
+5 : Paladin/Doomsday
+6 : Maniac
+7 : Knight
+
+0: Hornet
+1: Rapier
+2: Scimitar/Dralthi
+3: Raptor

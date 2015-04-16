@@ -1,0 +1,23 @@
+diplomats signing papers on Firekka
+
+7 primaries
+
+0: 0 secondaries
+1: 0 secondaries
+2: 0 secondaries
+
+3: 28 secondaries
+  0: empty
+  1: hills background, orange sky
+  2: firekkan village foreground
+  3: firekkan platform foreground, diplomats
+  4-9: flag waving frames
+  10-19: diplomats shaking hands at center table frames
+  20-27: blank
+    
+4: 0 secondaries
+  
+5: 2 secondaries
+  both data
+
+6: 0 secondaries

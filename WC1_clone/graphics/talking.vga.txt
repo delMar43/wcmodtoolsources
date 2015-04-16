@@ -1,0 +1,45 @@
+12 primaries
+
+first 11 primaries have 22 secondaries each
+One for each face character
+0: Halcyon
+1: Spirit
+2: Hunter
+3: Bossman
+4: Iceman
+5: Angel
+6: Paladin
+7: Maniac
+8: Knight
+9: Bluehair
+10: Shotglass
+
+three datas, one full face, nine sounds, eight faces, two blank
+
+0: empty
+1: full face
+2: open mouth, D shape
+3: less open
+4: O shape
+5: "sh"
+6: "t"
+7: blank
+8: "v"
+9: "l"
+10: "v"
+11: some other letter
+12: eyes closed
+13: look left
+14: look right
+15: eyes up
+16: eyes down
+17: eyebrows up?
+18: angry
+19: perplexed
+20: blank
+21: blank
+
+11 is different
+  0: empty
+  1: halcyon saluting hand
+  2: pilot saluting hand

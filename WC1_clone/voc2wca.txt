@@ -1,0 +1,132 @@
+ -------------------------------------------------------------------------
+|            Wing Commander Academy - Wingmen Speech File Format          |
+|                      Also used by Wing Commander 2                      |
+|                              Version 1.0                                |
+ -------------------------------------------------------------------------
+
+The speech files used in both WC2 and Academy use the same format, which
+makes it extremely simple to move speech files from one game to another.
+However, should one be interested in including in the game custom voice
+files, it is first necessary to understand how things are stored.
+
+The way the speech files are organized, makes it very simple for people
+to create their own speech files with little effort. 
+It's structure is basically comprised of a header with several pointers which
+point to the different voices inside the same file. Voices itself can be
+extracted from simple VOC or WAV files. I'll be using VOC files through
+this file.
+
+-> First some quick info on VOC files
+
+Since i'm not covering in detail VOC file format, i'll only tell you
+what you need to know:
+
+ - Sample Rates:
+    
+    Academy uses VOC data coded at 11KHz (8 bits, mono). You can create
+    such files in no time using your favourite sound software.
+    I used Creative Wave Studio (it comes with every SoundBlaster card)
+
+ - VOC File Offsets:
+  
+    Offset 27 - Data Size (3 bytes)
+    Offset 42 - First byte of Voice Data
+
+
+-> Academy Speech File Format
+
+These files can be divided in 2 basic sections: Header and Data
+
+I found two kinds of header: a 68 byte header and a 128 byte header.
+I'm covering here the 68 byte header, since it's smaller and the final 
+result appears to be the same.
+
+  -------------
+ |Header Info: |
+  -------------
+
+ Offset                 Size                    Pointer points to:
+ (decimal)
+
+ 0                      4 bytes                 EOF (pointer = file size)
+ 4                      3+1 bytes               Affirmative Voice
+                                                ("Of course Sir!")
+ 8                      3+1 bytes               Negative Voice
+                                                ("I can't do that sir!")
+ 12                     3+1 bytes               Enemy-sighted Voice
+                                                ("Kilrathi Ships ahead!")
+ 16                     3+1 bytes               Let-me-loose Voice
+                                                ("May i attack sir?")
+ 20                     3+1 bytes               Help-me Voice
+                                                ("I require your assistence")
+ 24                     3+1 bytes               I-killed-a-fighter Voice
+                                                ("Die in dishonour")
+ 28                     3+1 bytes               I-killed-a-capship Voice
+                                                ("Join Sivar Kilra'hra")
+ 32                     3+1 bytes               I'm-Impressed Voice
+                                                ("Very impressive sir")
+ 36                     3+1 bytes               No voice here. The value of
+                                                this pointer equals the value
+                                                of the pointer at offset 40
+ 40                     3+1 bytes               I'm-Ejecting Voice
+                                                ("Ejecting!")
+ 44                     3+1 bytes               Let's-get-outta-here Voice
+                                                ("We cannot remain here Sir")
+ 48                     3+1 bytes               I'm-outta-here Voice
+                                                ("Returning to base Sir")
+ 52                     3+1 bytes               Don't-shoot-at-me Voice
+                                                ("Hharakhh")
+                                                (when enemies are present)
+ 56                     3+1 bytes               Don't-shoot-at-me Voice
+                                                ("Lock down your guns sir")
+                                                (no enemies present)
+ 60                     3+1 bytes               I'm-gonna-kick-your-ass Voice
+                                                ("You are the traitor!")
+ 64                     3+1 bytes               Here's-the-data Voice
+                                                ("Transmitting Data")
+
+ Notes: The "3+1 bytes" means that the pointer takes 3 bytes, with 1 extra
+        byte (e0h). Also, the quotes were taken from the Hobbes file, so you
+        can have a pretty good idea on when the game will play these sounds.
+        One last thing: the descriptions provided above is only reliable for 
+        wingmen (for example, no kilrathi will ask you for help :) ). More
+        details on any communic.s* file can be found on their communic.t*
+        counterpart.
+
+
+  -----------
+ |Data Info: |
+  -----------
+
+Not much to say here really... All you have to put here is the data taken
+from several VOC files, beginning at offset 42 and with the lenght stored
+at offsets 27/28/29, as explained in the VOC info above. 
+To create a speech file from scratch, create a file with an empty header and 
+keep adding to the end of the file the data from the several VOC files. 
+Of course, don't forget to update the header so the pointers point to the
+right offsets.
+
+
+-> Future work
+
+- The pointer at offset 36 deserves looking at closely. It contains the same
+value as offset 40, so it suggests a zero byte field (as the size of n can
+be calculated by subtracting pointers n+1 by n). It's my guess that it's the 
+place for a death voice. This is consistent with the fact that Hobbes doesn't 
+die in WC2, he always ejects. IMHO, this field is worth checking in WC2 with 
+generic confed pilots (those can die :) )
+
+- It could be interesting to check out the 128 byte header in detail later.
+
+- Some sample C code... maybe later :)
+
+
+CREDITS:
+
+- Wing Commander Academy and Wing Commander 2 were created by and are 
+  copyright of Origin Systems INC
+
+- This info file was written (in a hurry) by
+
+                              Mario "HCl" Brito
+                          mop23404@mail.telepac.pt

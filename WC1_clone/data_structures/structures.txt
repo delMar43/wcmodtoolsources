@@ -1,0 +1,201 @@
+Flight object
+  Event on collision
+  Lifetime
+  
+Asteroid(Flight object)
+Mine(flight object)
+Missile(flight object, weapon)
+  
+Ship in flight (flight object, ship class)
+  AI
+  Coordinates (relative to nav point)
+  Orientation
+  Orders/target
+  Speed
+  Jump in/out
+  Friend or foe
+  
+Ship classes
+  Weapons/positions
+  Speed
+  Shields
+  Armor
+  Maneuverability
+  Image size
+  Collision size
+  Landing base?
+  Cloak?
+  Jump drive?
+  Afterburners?
+  Kill points
+
+Weapons
+  Range
+  Damage
+  Speed
+  Energy used
+  Consumable?
+
+AI
+  Behavior
+  Comm messages
+  Comm images
+  
+  Methods:
+  Update sim time
+  Send comm message
+  Receive comm message
+  
+  
+  
+  
+
+Music
+  Tune
+  
+  Methods:
+  Play
+  Stop  
+  
+Killboard
+  Background
+  Text
+
+Enemy aces
+  Name
+  Callsign
+  Missions present
+  Missions encountered
+  Missions killed
+  AI
+
+Talking head screen
+  Conversation screen, with animations defined by mouth motion string
+  
+Conversation screens
+  Static images
+  Animations
+  Text
+  Text color
+  
+  Methods:
+  Start
+  End
+  
+Conversations
+  List of conversation screens
+  Branch points
+  
+  Methods:
+  Play
+  Next
+  End
+  
+Ranks
+  Insignia
+  Name
+  
+Medals
+  Image
+  Name
+  
+Pilot characters
+  Talking head
+  Killscore
+  Missions
+  AI
+  First Name
+  Last Name
+  Rank
+  Callsign
+  Mission killed
+  
+Images
+  Data
+  
+  Method:
+  Display (coordinates)
+  
+Animation frame
+  Image
+  Location
+
+Animations
+  Sequence of frames
+
+  Methods:
+  Play
+  Stop
+  
+Rooms
+  Static images
+    Background
+    Overlays
+  Animations
+  Hotspots
+  
+Nav points
+  Ships/fields
+  Coordinates
+  Stealth flag
+  
+Fields
+  Coordinates
+  Radius
+  
+Flight missions
+  Nav points
+  Navmap
+  Objectives
+  
+Navmap
+  Collection of navmap icons
+
+Navmap icon
+  Type
+  Switch on/off
+  Label
+  Coordinates
+  
+Missions
+  Flight mission
+  Date
+  Time
+  System
+  Who is sitting in bar
+  Briefing
+  Debriefing
+  Bar conversations
+  Medal acquirable, kill points per medal
+  Objectives, victory points for each
+
+Mission Objective
+
+Series
+  Missions
+  Wingman
+  Victory points to win
+  Cutscene if win, loss
+  Series next if win, loss
+  Ship flown next if win, loss
+  
+Campaigns
+  Name
+  Collection of series
+  
+Present game state
+  All pilot states
+  Mission/Series/Campaign
+  $A: MEDAL TO BE AWARDED
+  $E: PREVIOUS DATE (FOR MEDAL CEREMONY)
+  $K: KILLS LAST MISSION
+  $L: WINGMAN KILLS LAST MISSION
+  Kill points
+  Victory points
+  
+Saved game
+  Present game state
+  Save name
+  
+Save game system
+  List of saved games

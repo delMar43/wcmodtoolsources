@@ -1,0 +1,26 @@
+fighters
+0: hornet
+1: rapier
+2: scimitar
+3: raptor
+9: salthi
+10: dralthi
+11: krant
+12: gratha
+13: jalthi
+14: hhriss
+29: missile
+
+all but missile
+3: 38, 4, 0
+
+missile
+3: 23, 0, 0
+
+0:
+  1-37: fighter from different angles
+  
+1:
+  1: green VDU outline
+  2: red VDU outline
+  3: VDU guts

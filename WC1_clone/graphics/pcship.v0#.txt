@@ -1,0 +1,70 @@
+0: Hornet
+1: Rapier
+2: Scimitar
+3: Raptor
+4: Simulator
+5: Dralthi
+
+10: 2 2 2 2 5 2 0 23 3 31
+First is always empty
+Many are missing for simulator
+
+0: cockpit
+1: right view
+2: left view
+3: back view
+4: damage chunks
+5: up view
+6: empty
+7:
+  1: eject light on
+  2: weapon energy bar full
+  3: autopilot light on
+  4: big red light on
+  5: short horizontal blue bar
+  6: fuel bar
+  7: horizontal armor bar
+  8: vertical armor bar
+  9: vertical armor bar
+  10: horizontal armor bar
+  11: long horizontal blue bar
+  12: eject light off
+  13: weapon energy bar empty
+  14: autopilot light off
+  15: big red light off
+  16: horizontal field of red
+  17: empty fuel bar
+  18: horizontal field of red
+  19: vertical field of red
+  20: vertical field of red
+  21: horizontal field of red
+  22: horizontal field of red
+ 
+8:
+  1: landed hornet, cockpit open
+  2: landed hornet cockpit window
+
+9:
+  1: Hornet on HUD
+  2: Hornet left gun light green
+  3: Hornet left gun dark green
+  4: Green dot
+  5: Green dot
+  6: Green dot
+  7: Green dot
+  8: Green dot
+  9: Green dot
+  10: DF Missile(?) light green
+  11: DF Missile(?) dark green
+  12: HS missile light green
+  13: HS missile dark green
+  14-21: green dot
+  22: red damage symbol
+  23: red damage symbol
+  24: red damage symbol (engine?)
+  25: red damage symbol
+  26: red damage symbol (com?)
+  27: red damage symbol (shield?)
+  28: red damage symbol
+  29: red damage symbol
+  30: red damage symbol

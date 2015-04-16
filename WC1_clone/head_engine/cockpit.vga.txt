@@ -1,0 +1,41 @@
+9 primaries
+
+0: 5 secondaries
+  0: empty
+  1: reticle
+  2: missile reticle
+  3: Small nav point
+  4: Big nav point
+  
+1: 2 seconadries
+  0: empty
+  1: in-flight nav map screen
+  
+2: 2 secondaries
+  0: empty
+  1: starfield
+
+3: 0 secondaries
+
+4: 7 secondaries
+  0: empty
+  1: left full shield
+  2: right full shield
+  3: left mid shiled
+  4: right mid shield
+  5: left low shield
+  6: right low shield
+  
+5: 9 secondaries
+  0: empty
+  1-8: fireworks frames
+
+6: 2 secondaries
+  0: empty
+  1: Wing Commander logo top and bottom framing screen
+  
+7: 2 secondaries
+  0: empty
+  1: inside of ejection helmet
+  
+8: 0 secondaries

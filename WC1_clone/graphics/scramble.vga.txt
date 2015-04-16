@@ -1,0 +1,41 @@
+10: 27, 3, 28, 37, 18, 2, 21, 4, 5, 12
+
+0:
+  1: scramble background 1 (deck 12)
+  2: scramble background 2 (tubes 6-9)
+  3: scramble background 3 (no sign)
+  4: helmet
+  5: hair
+  6-20: running silhouette frames
+  21-26: blank
+
+1:
+  1: look at fighter inside bay, through two doors
+  2: wide shot of interior flight hangar
+
+2:
+  1-27: frames of deck guy gesturing
+  
+3:
+  1-36: frames of pilot putting on helmet
+  
+4:
+  1-17: frames of ammo truck, guy guiding fighters
+
+5:
+  1: ladder
+  
+6:
+  1-20: flight guy, arms akimbo, saluting, looking after departing ship frames
+
+7: 
+  1-3: left, middle and right of hanger door forcefield
+  
+8:
+  1: end of landing deck
+  2: wide shot landing deck
+  3: bulkhead
+  4: overhead shot of landing deck
+  
+9:
+  1-11: various damage to ship

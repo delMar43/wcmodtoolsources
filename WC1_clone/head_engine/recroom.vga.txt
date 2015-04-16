@@ -1,0 +1,58 @@
+13 primaries
+
+0: 5 secondaries
+  0: empty
+  1: recroom background
+  2: feet on right side of table
+  3: feet on left side of table
+  4: feet on both sides of table
+  
+1: 4 secondaries
+  0: empty
+  1: half wall (shotglass)
+  2: left side of bar
+  3: right side of bar
+
+2: 2 secondaries
+  0: empty
+  1: chalkboard
+  
+3: Spirit
+4: Hunter
+5: Bossman/Jazz
+6: Iceman
+7: Angel
+8: Paladin/Doomsday
+9: Maniac
+10: Knight
+
+3-10: 7 secondaries (pilots sitting at table)
+  0: empty
+  1: Main frame
+  2-6: Animation frames
+
+11: 42 secondaries (shotglass behind bar)
+  0: empty
+  1-41: Animation frames
+  
+12: 52 secondaries (Barracks)
+  0: empty
+  1: Barrack background
+  2: Back left
+  3: Back right
+  4: Next left
+  5: Next right
+  6: Next left
+  7: Next right
+  8: Next left
+  9: Next right
+  10: Green light
+  11: Red light
+  12-25: Red bar animations
+  26: bar array
+  27: ceiling light
+  28-36: Drip ceiling
+  37: Drip path
+  38-49: Bucket animations
+  50: Ceiling light
+  51: Word "Status"

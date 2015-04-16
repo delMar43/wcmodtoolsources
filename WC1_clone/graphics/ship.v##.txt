@@ -1,0 +1,24 @@
+capships
+
+4: venture
+5: dilligent
+6: drayman
+7: exeter
+8: claw
+15: dorkier
+16: lumbari
+17: ralari
+18: fralthi
+19: snakier
+20: sivar
+21: starpost
+
+38 primaries:
+  One image per, except last which has 3
+  Starpost has fewer angles populated
+
+0-36: ship from various angles
+37:
+  1: green VDU outline
+  2: red VDU outline
+  3: VDU guts

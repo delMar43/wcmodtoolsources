@@ -1,0 +1,32 @@
+12: 3, 6, 6, 6, 6, 6, 6, 6, 6, 3, 6, 3
+
+0:
+  1: Clear helmet com image
+  2: fuzzy helmet com image
+
+Spirit
+Dart
+Bossman
+Iceman
+Angel
+Paladin
+Joker
+Knight
+
+1-8:
+  1: Helmet normal
+  2: Helmet mouth open?  Angry?
+  3: Helmet eyes closed
+  4: Helmet, eyes wide
+  5: Helmet fuzzy, eyes closed, dying?
+  
+9: Kilrathi pilot
+  1: Normal
+  2: Fuzzy
+  
+10:
+  1-5: Frames of Kilrathi pilot
+  
+11:
+  1: Pilot fuzzing out
+  2: Fuzz

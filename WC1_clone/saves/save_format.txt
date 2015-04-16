@@ -1,0 +1,76 @@
+file is in eight 828-byte chunks, one per saved game; NOT the standard table format
+
+0-15: name of the saved game, null terminated, junk occupying empty space
+16-17: blank?  junk?
+
+9x38 byte chunks per pilot, in the usual order, player last
+14: last name
+14: callsign
+2: CODE1?
+2: rank
+2: missions
+2: kills
+2: CODE2?
+  
+360-391:
+4:unknown, rewritten by engine after each mission
+  42 9A 00 00
+5: numbers of each medal type: Bronze, Silver, Gold, Golden Sun, Pewter Planet
+12: ribbons obtained or not
+1: Mission (index from 0)
+1: Series (index from 1)
+9: unknown
+  00 00 00 00 00 00 00 00 00
+
+392-427:
+16: two bytes per pilot, 0 if alive, 0x0A if dead
+  other values meaningful?  Time of death somehow? 0x01 also registers as KIA
+4: one byte per ace, 1 if not seen, 0x0A if dead
+2: date
+2: year
+4: unknown
+  06 00 00 00
+2: Promotion points
+2: unknown 00 00
+2: victory points
+2: series
+
+400-427: unknown, mostly zero
+
+428-527 replaced after first mission ended in ejection, 100 bytes, seems to correspond to four nav points?
+25 bytes per nav point
+2C 01 96 00 05 00 00 01 00 C9 68 5A 91 00 30 75 00 00 78 EC FF 00 98 3A 00
+C2 01 38 FF 0D 00 00 02 00 16 69 9A 91 00 C8 AF 00 00 10 27 00 00 E0 B1 FF
+32 00 3E FE 08 00 00 03 00 63 69 DA 91 00 88 13 00 00 88 13 00 00 38 50 FF
+00 00 00 00 03 01 00 00 00 21 65 1A 92 00 00 00 00 00 00 00 00 00 00 00 00
+8 is nav point number? 6 is whether the point was reached or not?
+
+Two other bytes changed, 533 and 534 became 0xff, skipped five of what would have been the next one, maybe 6 and 7 have significance?
+
+Mission where pilot died must be stored somewhere, I think
+Same for mission where aces were seen, died?
+Series count?
+Last mission data?
+
+Spirit
+Hunter
+Bossman/Jazz
+Iceman
+Angel
+Paladin/Doomsday
+Maniac
+Knight
+Player
+
+ACAD      Academy Graduate
+FLTS      Flight School Graduate
+VEGA      Vega Campaign participant
+HORN      Flew at least one mission in Hornet
+RPIR      Flew at least one mission in Rapier
+SCIM      Flew at least one mission in Scimitar
+RAPT      Flew at least one mission in Raptor
+ACE       Achieved at least 5 kills
+AOFA      "Ace of Ace", Achieved at least 25 kills
+5 M       Completed at least one mission (not MY error)
+10 M      Completed at least 10 missions
+15 M      Completed at least 15 missions

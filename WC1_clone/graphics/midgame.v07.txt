@@ -1,0 +1,33 @@
+SM2, assault on priestesses, both paths
+
+7 primaries
+
+0: 33 secondaries
+  0: empty
+  1: purple sky background
+  2: temple columns foreground
+  3: right column
+  4-5: blank
+  6-18: soldiers firing frames
+  19-32: firekkans firing frames
+  
+1: 4 secondaries, all data
+2: 4 secondaries, all data
+
+3: 38 secondaries
+  0: empty
+  1: table and flag in foreground
+  2-14: priestess dying frames
+  15-37: guards returning fire, one dying frames
+      
+4: 32 secondaries
+  0: empty
+  1: priestess feet
+  2-16: priestess being defended
+  17-32: guards returning fire frames
+  
+5: 2 secondaries
+  both data
+
+6: 2 secondaries
+  both data

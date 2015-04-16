@@ -1,0 +1,33 @@
+Mid-game cutscene, both trees, kilrathi attacking ocean city
+
+7 primaries
+
+0: 4 secondaries
+  0: empty
+  1: ocean city background
+  2: cliffs foreground
+  3: two people foreground
+  
+1: 2 secondaries
+  0: empty
+  1: bug
+  
+2: 2 secondaries
+  0: empty
+  1: long black bar
+
+3: 12 secondaries
+  0: empty
+  1-10: missiles firing frames
+  11: dralthi
+  
+4: 16 secondaries
+  0: empty
+  1-14: big splash in water, city destroyed
+  15: dralthi
+  
+5: 2 secondaries
+  both data
+
+6: 2 secondaries
+  both data

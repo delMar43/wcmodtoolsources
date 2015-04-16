@@ -1,0 +1,38 @@
+Mid-game cutscene, both trees, kilrathi attacking science base
+
+7 primaries
+
+0: 6 secondaries
+  0: empty
+  1: outside city background
+  2: inside base background
+  3: chunk of right wall background
+  4: left computer terminal foreground
+  5: rightcomputer terminal foreground
+  
+1: 3 secondaries
+  0: one pixel
+  1: empty
+  2: very tall black bar?
+  
+2: 2 secondaries
+  0: one pixel
+  1: empty
+
+3: 29 secondaries
+  0: empty
+  1-7: man yelling into phone frames
+  8-15: kilrathi surrendering frames
+  16-28: team with gun
+  
+4: 19 secondaries
+  0: empty
+  1-10: one guy dying
+  11: dead bodies
+  12-18: kilrathi attacking
+
+5: 2 secondaries
+  both data
+
+6: 2 secondaries
+  both data

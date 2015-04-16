@@ -1,0 +1,104 @@
+back.wld
+goblin.wld
+savegame.wld
+	saved games
+	not decoded
+
+briefing.00n
+	briefings
+	format decoded
+
+camp.00n
+  campaigns
+  format mostly decoded
+
+module.00n
+	missions
+	documented format
+
+commsm2.dat
+communic.dat
+  communication strings
+  plain text
+
+convert.pal
+game.pal
+
+fonts.fnt
+
+wingldr.tim
+
+GRAPHICS
+documented format
+
+Fighter cockpits
+pcship.v00-5
+	Hornet
+	Rapier
+	Scimitar
+	Raptor
+	Simulator
+	Dralthi
+
+Fighter images and HUD icons
+shiptype.v00-v03
+	Hornet
+	Rapier
+	Scimitar
+	Raptor
+shiptype.v08-v13
+	Salthi
+	Dralthi
+	Krant
+	Gratha
+	Jalthi
+	Hhriss
+shiptype.v29
+	missile
+
+Capship images and HUD icons
+ship.v04-v08
+	Venture
+	Dilligent
+	Drayman
+	Exeter
+	Claw
+ship.v15-v21
+	Dorkier
+	Lumbari
+	Ralari
+	Fralthi
+	Snakier
+	Sivar
+	Starpost
+
+arrow.vga
+	mouse pointers
+briefing.vga
+	briefings, debriefings, medals, funerals
+cockpit.vga
+	target reticle, explosions, eject mask overlay, title banner for autopilot, computer displays
+pilotanm.vga
+	death, ejection, steering, finger animations
+planets.vga
+planets1.vga
+	stellar phenomena for flight backgrounds
+recroom.vga
+	recroom, faces, barracks
+scramble.vga
+	scramble animation
+series.vga
+	mission tree
+talking.vga
+talking1.vga
+	faces, talking animations, 1 is SM2
+title.vga
+	opening cuscene, flag planting scene, font, main menu
+title1.vga
+	main menu for SM2, bikini shot in barracks	
+wingmen.vga
+wingmen1.vga
+	com graphics
+
+midgame.v00-v08
+	midgame cutscenes

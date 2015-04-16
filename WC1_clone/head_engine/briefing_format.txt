@@ -1,0 +1,194 @@
+First four bytes are file size, LSB first, little endian.
+
+Next is the primary table.  Each entry is an address in the file.  Three bytes are the address, fourth byte (highest order) has no known usefulness.  56 entries in the primary table for Vega campaign, 36 for SM1, 40 for SM2.  0 points to the funerals, 1 is scenes in Halcyon's office (promotion, transfer, ejection), 2 is metal ceremony, 3 is empty, and the rest are individual mission slots.  Each series has four mission slots, so some are empty.  13 series, four slots, 52 mission slots.
+
+Sometimes the primary table entry points directly to a block of data, but usually it points to a secondary table.  These tables are the same format as the first, but they point to offsets from the start of the secondary table.  Block 0 (funerals) and every mission block (4-55 in Vega) is a secondary table.  Blocks 1-3 are data with no secondary table.
+
+There are seven distinct conversations in the funeral block.
+
+0: End of player funeral.  "Farewell, $C. You'll be missed."
+1: Start of player funeral, early game.
+2: Start of player funeral, middle game.
+3: Start of player funeral, winning late game.
+4: Start of player funeral, losing late game.
+5: Player saying goodbye to another pilot, branching based on who died.
+6: Start of pilot funeral, branching based on who died.
+
+Blocks 1 and 2 haven't been decoded yet.
+
+Each mission has 10 entries in its secondary table, corresponding to the conversations available for that mission.
+
+0-1: briefing
+2-3: debriefing
+4-5: shotglass
+6-7: bar seat right
+8-9: bar seat left
+
+Even entries are data selecting faces, font colors, and backgrounds.  These entries are divided into thirteen-byte chunks, one chunk per screen, with an extra chunk to denote the end of the cutscene.
+0: foreground
+1: text color
+2: background (only updates if character changes too)
+3/4: UNKNOWN (almost always a multiple of 10, no obvious effects; related to similar values in camp file block 1?)
+5-12: four addresses, two bytes each, pointing to the first bytes of each block of the odd table entries, offset from the start of the odd entry; must match with breaks in odd block or briefing will crash
+
+Foregrounds
+0: Briefing crowd moving
+1: Briefing crowd still
+2: Halcyon at podium
+3: Halcyon pointing to the nav map
+4: Nav map closeup
+5: Briefing crowd standing up
+6: Empty room
+7: Mid-range nav map
+8: Empty room
+9: Half wall
+10: Camera pans right across backs of pilots
+11: Camera holds on backs of pilots
+12-15: Various starfield debris shots
+16: Camera holds?
+17: DIVIDE ERROR, GAME CRASHES!
+18: Blank
+19: Blank
+20: Halcyon
+21: Spirit
+22: Hunter
+23: Bossman/Jazz
+24: Iceman
+25: Angel
+26: Paladin/Doomsday
+27: Maniac
+28: Knight
+29: Bluehair
+30: Shotglass
+254: end conversation
+255: nobody
+MAY BE MORE FOR HALCYON OFFICE, FUNERAL, AND MEDAL SCENES
+
+Text colors
+0: Light blue
+1: Lavendar (Spirit)
+2: Royal Blue (Hunter)
+3: Red (Bossman/Jazz)
+4: Cyan (Iceman)
+5: Peach (Angel)
+6: Blue (Paladin/Doomsday)
+7: Electric Green (Maniac)
+8: Brown (Knight)
+9: Yellow (Bluehair)
+10: Pea Green (Shotglass)
+11: medium light gray
+12: medium gray
+13: very light gray
+14: very dark gray
+15: medium dark gray
+16: medium light gray
+17: medium light gray
+18: black
+various grays from here on?
+
+Backgrounds
+0: briefing room wall
+1: briefing room crowd
+2: shotglass window
+3: left bar seat
+4: right bar seat
+10: halcyon background during debriefing
+11: pilot background during debriefing (hangar door)
+255: nothing
+MAY BE MORE FOR HALCYON OFFICE, FUNERAL, AND MEDAL SCENES
+
+Odd entries are the scripts for the scenes.  Each script is divided into chunks separated by \0's.  Each group of four chunks is associated with a single screen of the cutscene.
+
+The first chunk is a script defining a branch under certain circumstances, whether a character is dead, whether a mission was accomplished, etc.  Unusual combination of ASCII and not.  A branch comes in two basic formats, depending on whether the branch requires arguments or not.
+
+The first byte is always the branch condition.  If the condition does not accept arguments, this is followed by the destination frame of the conversation, IN ASCII.  49 would be screen 1, 49 48 would be 10.  If there is an argument, these arguments are also in ASCII, and are followed by a 44 (','), which is then followed by the destination frame.  More commands can be appended if multiple conditionals are to be ORed, by placing ','s between each conditional.
+
+CONDITIONS (these are all the conditions used in the original briefings, there may be others the system will respond to):
+1: Unconditional, always branch
+2(X): Branch if mission didn't go well?  Damage above a certain threshhold?
+3(X): Branch if mission went well?  Damage below a certain threshhold?
+4(X): Branch if pilot X is dead
+5(X): Branch if pilot X is alive
+6: Branch if player kills last mission == 0
+7: Branch if player kills last mission > 0
+8(X): Branch if pilot X kills last mission == 0
+9(X): Branch if pilot X kills last mission > 0
+10: Branch if no meeting with Halcyon after debriefing
+11(X): Branch if objective X failed
+12(X): Branch if objective X succeeded
+13: Branch if receiving Pewter Planet
+14: Branch if receiving Bronze/Silver/Gold Star
+15: Branch if receiving Golden Sun
+16: Branch if not promoted
+17: Branch if didn't eject this mission
+18: Branch if first ejection (Golden Sun)
+19: Branch if not transferring squadrons
+20: Branch if not transferring to Hornet
+21: Branch if not transferring to Scimitar
+22: Branch if not transferring to Raptor
+23: Branch if not transferring to Rapier
+24: Branch if transfer to worse ship
+25: Branch if transfer to better ship
+26: Branch if not first ejection
+27(X): Branch if objective X sighted
+28(X): Branch if objective X not sighted
+29(X): Branch if pilot X did not die this mission
+30(X): Branch if pilot X died this mission
+31(X): Branch if Kilrathi ace dead
+32(X): Branch if Kilrathi ace survived previous mission
+33(X): Branch if Kilrathi ace alive
+34(X): Branch if Kilrathi ace died in previous mission
+35: Branch if mission went well (quantifiable?)
+36: Branch if mission went poorly (quantifiable?)
+
+PILOTS:
+48(0): Spirit
+49(1): Hunter
+50(2): Bossman/Jazz
+51(3): Iceman
+52(4): Angel
+53(5): Paladin/Doomsday
+54(6): Maniac
+55(7): Knight
+
+ACES:
+48(0): Bhurak Starkiller
+49(1): Dakhath Deathstroke
+50(2): Khajja the Fang
+51(3): Baron Bakhtosh Redclaw
+
+The second block is the text displayed on the screen.  Some variables can be inserted here.
+
+Variables:
+$A: MEDAL TO BE AWARDED
+$C: CALLSIGN
+$D: DATE
+$E: PREVIOUS DATE (FOR MEDAL CEREMONY)
+$K: KILLS LAST MISSION
+$L: WINGMAN KILLS LAST MISSION
+$N: NAME
+$P: NAME (NEVER USED)
+$R: RANK
+$S: SYSTEM
+$T: TIME OF NEXT MISSION
+
+The third block is a phonetic version of the text, in ASCII, used to make the mouth move correctly.  Might be useful for a speech pack?  Pauses can be inserted.  $X where X is some number is a pause before or after speech.  A number otherwise is interpreted as a pause DURING speech.
+
+Fourth block is an ASCII script controlling the expressions of the talking head.  First byte is usually 82 ('R').  If it's not, the first command seems to be skipped.  After that, the block is divided into commands by 44 (',').  Block must always end with a ',' as well.  Each command consists of an expression and a length.
+
+Facial expressions
+0 CLOSED
+1 LEFT
+2 RIGHT
+3 UP
+4 DOWN
+5 AFRAID?  Eyebrows up
+6 ANGRY
+7 PERPLEXED, one eyebrow up
+8 HAPPY
+Anything else seems to be default face
+
+Left to do:
+Bytes 3/4 for each screen are unknown
+Code fails in reading SM1 series 6 mission 1 debriefing screen 10; DOES NOT fit format; error in file?
+Some branching conditions aren't fully quantified

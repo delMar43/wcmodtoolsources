@@ -1,0 +1,54 @@
+First mission bar scenes
+44 may be a delimieter of some kind, ','
+82, 65, x, x, 44, x, x, 44, x, x, 44, 65, x,x 44, x, x, 44, x, x, 44, 65, x, x, 44, x, x, 44, x, x, 44
+
+PALADIN
+[82, 65, 52, 53, 44, 56, 49, 44, 48, 49, 44, 65, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 53, 48, 44, 56, 49, 44, 48, 50, 44]
+Paladin looking straight ahead
+
+[4, 52, 44, 54, 44] followed by a switch to Angel; check to see if Angel is dead, skip the next two screens?
+
+[82, 49, 52, 53, 44, 56, 49, 44, 48, 49, 44, 49, 51, 53, 44, 56, 49, 44, 48, 49, 44, 49, 53, 48, 44, 56, 49, 44, 48, 50, 44]
+Angel looks left
+three 65's replaced by 49's
+
+[82, 50, 52, 53, 44, 56, 49, 44, 48, 49, 44, 50, 51, 53, 44, 56, 49, 44, 48, 49, 44, 50, 53, 48, 44, 56, 49, 44, 48, 50, 44]
+Paladin looks right
+
+
+
+
+ANGEL
+[82, 65, 52, 53, 44, 56, 49, 44, 48, 49, 44, 65, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 53, 48, 44, 56, 49, 44, 48, 50, 44]
+Looking at you, length 31
+
+[52, 50, 53, 44, 82, 56, 49, 44, 48, 50, 44, 65, 52, 53, 44, 56, 49, 44, 48, 49, 44, 65, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 53, 48, 44]
+Switch to looking down?  NO apparent difference, length 35
+
+[82, 52, 52, 53, 44, 56, 49, 44, 48, 49, 44, 52, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 53, 48, 44, 56, 49, 44, 48, 50, 44]
+Looking down
+[2] 65-52
+[12] 65-52
+82 followed by six blocks of five?
+
+
+SHOTGLASS
+
+[82, 65, 52, 53, 44, 56, 49, 44, 48, 49, 44, 65, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 53, 48, 44, 56, 49, 44, 48, 50, 44]
+Looking straight ahead, length 31
+
+[82, 56, 49, 44, 48, 49, 44, 65, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 53, 48, 44]
+Unknown difference, length 21
+82, cut four, same twenty, cut six
+
+[82, 65, 52, 53, 44, 56, 49, 44, 48, 49, 44, 50, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 50, 53, 44, 56, 49, 44, 48, 50, 44, 49, 51, 48, 44, 56, 49, 44, 48, 49, 44]
+Glance right, length 41
+Same 11, 65-50, same 10, 53-50, 48-53, same 7, extra 10
+
+[82, 56, 49, 44, 48, 49, 44, 65, 51, 53, 44, 56, 49, 44, 48, 49, 44, 65, 52, 48, 44], length 21
+Old shotglass is the guy to ask, SMILE
+82, skip 4, same 17, 53-52, same 2, skip six
+
+[82, 65, 51, 48, 44, 56, 49, 44, 48, 49, 44]
+Stop by when you're off duty and we'll talk more, NO PAUSE, length 11
+same 2, 52-51, 53-48, same seven, cut 20

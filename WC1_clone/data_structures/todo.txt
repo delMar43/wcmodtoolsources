@@ -1,0 +1,23 @@
+todo:
+document all objects properly
+typecheck all initializations
+define face animations
+define screen transition system
+define remaining conversation branch conditions
+build global timer update system
+implement promotions
+implement navpoint manipulation of other navpoints, other new mission data
+Missions also have Halcyon victory conditions, not sure how to quantify
+read data from data blocks into data structures
+	missions, campaigns, briefings, saves
+
+
+
+
+
+"Missions also award promotion points. Promotion points are earned for reaching the maximum number of victory points possible in a mission, reaching or passing a number of total kills that is divisible by five, and for killing a Kilrathi Ace or Drakhai. In some missions, you LOSE one promotion point if your wingmate dies during the mission.
+
+Promotion points accumulate from mission to mission until they exceed a random number generated at the end of each mission. If you pass this number and are eligible for promotion, you will receive the next rank. Whether or not you are eligible for promotion, the promotion point total will also be set to zero. Note that you cannot become a Lieutenant Colonel in the Vega campaign."
+
+
+

@@ -1,0 +1,78 @@
+18 primaries
+
+0: 21 secondaries
+  0: empty
+  1-9: comet tail?  engine afterburn?  Seem to come in sets of 3
+  10-12: ball of flame
+  13-17: blue tail, shortening
+  18-20: blue ball
+
+1: 11 secondaries
+  0: empty
+  1-10: explosion getting bigger/closer
+  
+2: 7 secondaries
+  0: empty
+  1-6: explosion getting bigger/closer
+  
+3: 9 secondaries
+  0: empty
+  1-8: explosion getting bigger/closer
+
+4: 34 secondaries
+  1-33: ship debris?
+  
+5: 30 secondaries
+  0: empty
+  1-29: rotating wing and hull segments
+  
+6: 2 secondaries
+  0: empty
+  1: laser shot
+
+7: 2 secondaries
+  0: data
+  1: mass driver shot
+
+8: 2 secondaries
+  0: empty
+  1: neutron gun shot
+  
+9: 7 secondaries
+  0: empty
+  1-6: small red explosion
+
+10: 5 secondaries
+  0: empty
+  1-4: small blue explosion
+
+11: 5 secondaries
+  0: empty
+  1-4: small red explosion
+
+12: 5 secondaries
+  0: empty
+  1-4: red sparks
+  
+13: 7 secondaries
+  0: empty
+  1-6: asteroid
+  
+14: 4 secondaries
+  0: empty
+  1: big jump point
+  2: smaller jump point
+  3: one pixel jump point
+  
+15: 4 secondaries
+  0: empty
+  1-3: mine
+  
+16: 15 secondaries
+  0: empty
+  1-14: asteroid
+  
+17: 14 secondaries
+  0: empty
+  1-13: asteroid
+  

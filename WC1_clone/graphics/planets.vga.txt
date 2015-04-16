@@ -1,0 +1,22 @@
+12 primaries
+
+0: 39 secondaries
+  0: empty
+  1-32: space garbage
+  33-38: stars
+  
+1-11: 2 secondaries
+
+First is always empty
+Seconds:
+  1: Big purple nebula
+  2: Big red nebula
+  3: Spiral galaxy
+  4: half of a blue planet
+  5: white cratered moon with atmosphere
+  6: Gas giant
+  7: volcanic planet
+  8: mars-like planet
+  9: green ringed planet
+  10: yellow sun
+  11: red sun

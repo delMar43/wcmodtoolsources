@@ -1,0 +1,33 @@
+Mid-game cutscene, both trees, kilrathi attacking native village
+
+7 primaries
+
+0: 6 secondaries
+  0: empty
+  1: hut village background
+  2: blank
+  3: blank
+  4: blank
+  5: blank
+
+1: 2 secondaries
+  0: one pixel
+  1: bug
+  
+2: 2 secondaries
+  0: one pixel
+  1: bug
+
+3: 4 secondaries
+  0: empty
+  1-3: soldiers and natives holding kilrathi frames
+  
+4: 14 secondaries
+  0: empty
+  1-13: kilrathi holding and executing soldiers and natives
+  
+5: 2 secondaries
+  both data
+
+6: 2 secondaries
+  both data

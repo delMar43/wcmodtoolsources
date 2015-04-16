@@ -1,0 +1,19 @@
+16 entries, two entries per secondary table, first is always empty
+entries are sometimes a smaller version of the preceeding entry
+
+0: planet and two moons
+1: smaller
+2: yellow sun
+3: smaller
+4: cratered brown planet
+5: smaller
+6: small volcanic planet
+7: green planet
+8: smaller
+9: blue-white star
+10: smaller
+11: blue ghosty nebula
+12: two rocky bodies
+13: smaller
+14: gray-white comet trail, to upper-left
+15: gray-white comet trail, to left

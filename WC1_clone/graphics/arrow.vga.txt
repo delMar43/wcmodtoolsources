@@ -1,0 +1,7 @@
+1 primary
+4 secondaries
+
+Empty
+Arrow pointer
+Select pointer
+Mouse in flight pointer

@@ -1,0 +1,34 @@
+SM2, end, both paths
+
+7 primaries
+
+0: 0 secondaries
+1: 0 secondaries
+2: 9 secondaries
+
+3: 21 secondaries
+  0: empty
+  1: blue sky, firekkan city background
+  2: firekkan soldiers foreground
+  3-11: soldier shaking gun
+  12-16: soldier blinking
+  17: kilrathi transport in air
+  18-20: transport engine frames
+      
+4: 27 secondaries
+  0: empty
+  1: burned out firekkan city background
+  2: captured firekkans foreground
+  3: ship
+  4-5: ship exhaust frames
+  6-11: ship on ground with red lights
+  12: transport in air
+  13-15: transport engine frames
+  16-22: prisoner 1 moving
+  23-26: prisoner 2 moving
+  
+5: 2 secondaries
+  both data
+
+6: 2 secondaries
+  both data

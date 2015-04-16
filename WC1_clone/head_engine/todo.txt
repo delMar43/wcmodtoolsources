@@ -1,0 +1,13 @@
+Make Halcyon and crowd animate correctly when called in briefings
+Animate Halcyon pointing to map correctly
+Drawing things over the edge shouldn't make them wrap
+Make navmap correct (must read mission)
+Move bluehair's eyes to correct spot
+
+0 255 is animated start of briefing
+1 255 is nonanimated start of briefing
+2 255 is halcyin midrange, 0-2 on left, 0-3 on right
+3 255 is animation of pointing to the navmap, scrolling to the left
+4 0 navmap
+4 255 navmap animated?
+4 3 any questions

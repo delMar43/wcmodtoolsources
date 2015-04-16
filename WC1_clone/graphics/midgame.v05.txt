@@ -1,0 +1,29 @@
+SM1 end cutscene, both trees, Kilrathi general being executed
+
+7 primaries
+
+0: 0 secondaries
+1: 0 secondaries
+2: 0 secondaries
+
+3: 57 secondaries
+  0: empty
+  1-20: blank
+  21-35: general being vaporized
+  37-55: emperor giving order, guards firing
+  56: dome background
+  
+4: 40 secondaries
+  0: empty
+  1-12: 3 silhouettes in distance mining
+  13-24: two silhouettes closer mining
+  25-36: blank
+  37: clouds orange
+  38: clouds black
+  39: blank
+  
+5: 2 secondaries
+  both data
+
+6: 2 secondaries
+  both data

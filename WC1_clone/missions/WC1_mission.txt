@@ -1,0 +1,341 @@
+How to edit Wc1 v0.9     
+
+Note that virtually everything here is in decimal. Sorry about this, but I used almost
+exclusively "The Ultimate Game Editor" for Wc1, and it works in decimal mode.
+It would help if you had the Wc2 info file because the mission is organised in the same 4 parts,
+each one with the same funcion that in wc2, so since I skipped some data about that, you may
+want to take a peek at that one.
+
+Serie 1 mission 1 (decimal offsets):
+
+1st part: 126
+2nd part: 6492
+3rd part: 84508
+4th part: 151324
+
+A) Pilots
+
+
+ 10   0   1   0   9   0   3   0   0   0   0   0
+  0   0 136  19   0   0 136  19   0 135   0   0
+  0   0   0   0  15   0   4   0  15   0   0   0
+  0   0   0 255   1   9           |
+                                  |
+                                   -- Dakhath
+
+ 10   0   1   0   9   0   4   0   0   0   0   0
+  0   0   0   0   0   0   0   0   0 135   0   0
+  0   0   0   2  15   0   3   0   3   0   0   0
+  0   0   0  10   1  10
+
+	List of Pilots
+
+   Pilots 0,1,2,3 and 4 are Kilrathi pilots. I don't know what's different. Skill maybe?
+   Anyway, 0 and 1 are the most used.
+   05 - Spirit
+   06 - Hunter
+   07 - Bossman (Jazz in SM2, because Bossman is DEAD!)
+   08 - Iceman
+   09 - Angel
+   10 - Paladin (It's DOOMSDAY in SM2. Did Paladin go to The Spec. Ops. team?)
+   11 - Maniac
+   12 - Knight
+   13 - (What is this??)
+
+    -  14 - Bhurak Starkiller
+   |   15 - Dakhath Deathstroke
+  -|   16 - Khajja the Fang
+ |  -  17 - Bakhtosh Redclaw (Brother of Khasra Redclaw)
+ |
+  -> These aces are Drakhai on SM2.
+
+
+B) Ships and IFF
+
+ 10   0   1   0   9   0   4   0   0   0   0   0
+  |       |
+  |        -----IFF
+   -- Dralthi
+
+
+	List of ships: (note that some ships are available only on SM2)
+
+   00 - Hornet
+   01 - Rapier
+   02 - Scimitar
+   03 - Raptor
+   04 - Venture
+   05 - Dilligent
+   06 - Drayman
+   07 - Exeter
+   08 - Tiger's Claw
+   09 - Salthi
+   10 - Dralthi
+   11 - Krant
+   12 - Gratha
+   13 - Jalthi
+   14 - Hhriss
+   15 - Dorkir
+   16 - Lumbari
+   17 - Ralari
+   18 - Fralthi
+   19 - Snakeir
+   20 - Sivar
+   21 - Starpost
+
+	Others:
+
+   22 - Asteroids
+   23 - Mines
+   29 - Missile (?)
+
+		
+
+C) Ship's Speed
+
+  0   0   0   0 255   0   0   0   0   0   0   0
+  0   0   0   0   0   0  36 250 255 180   0   0
+  0   0   0   0  20   0   4   0  13   0   0   0
+                  |
+                   --- Speed
+  0   0   0 255   0   0
+
+
+D) Ship's Target
+
+ 10   0   1   0 255   0   0   0   0   0 120 236
+255   0 232   3   0   0 136  19   0 100   0   0
+  0   0   0   0  20   0   2   0   1   0   0   0
+  0   0   0 255   2   3
+                      |
+                       -- Will attack ship #3
+
+E) Ship jumping in/out
+                           -- Jump out (to jump in =7)
+                          |
+  6   0   0   0 255   0   6   0   0   0   0   0
+  0   0   0   0   0   0  72 244 255 180   0   0
+  0   0   0   0  15   0   3   0   2   0   0   0
+  1   0   0 255 255   2
+                      |
+                       -- Will jump out at nav2
+                        (if it were to jump in, it
+                         WOULD head for nav2 after
+                         jumping in)
+
+F) Mines and asteroid fields
+
+  Mines and asteroids are to be inserted like any other ship.
+
+   22 - Asteroids
+   23 - Mines
+
+	F2) Size of asteroid/mine fields
+
+ 22   0   2   0 255   0 255 255   0   0 168 228
+255   0  72 244 255   0  16  39   0   0   0   0
+  0   0   0   0 136  19   1   0   0   0   0   0
+                      |
+                       ---Size (19=Ok / <19 = Small / >19 <59 = Big / >59 = Huge!)
+  0   0   0 255 255   0
+
+
+
+
+G) Icons in the nav map
+
+  0   0   1   0  80 114 111  99 101 101 100  32           Proceed
+ ---     ---
+116 111  32  78  97 118  32  80 111 105 110 116        to Nav Point
+ 32  49   0   0   0   0   0   0   0   0   0   0         1
+
+  Not much to be said here. The 1st byte:
+
+  0 - Green Square.
+  1 - Home base symbol (white triangle)
+  2 - Symbol of friendly ship (purple cross)
+  3 - Symbol of friendly ship (green circle)
+  4 - Symbol of enemy craft (red circle)
+
+  The second byte is always a ship, except when the first byte is 0, then the second byte
+represents a nav point.
+
+IMPORTANT: This is the same as wc2. Any doubt in the Wc2 file, come check here.
+
+  
+
+H) Stealth Missions
+
+  On SM2, when you fly the Dralthi, you will notice that SOMETIMES the enemy
+does NOT attack you because it doesn't recognise you as human pilot.
+Here are the bytes that make the difference:
+
+ 46  83 110 101  97 107  32  66 121   0   0   0        .Sneak By
+  0   0   0   0   0   0   0   0   0   0   0   0
+  0   0   0   0   0   0   1   0  24   2 255   0               
+  0   0   0   0 176  60 255  32  78   1   1 255            _<  N
+                                      |   |
+                                      |   |
+                                       ---+-- If the first byte is 1,
+                                           then they won't attack you.
+                                           The second byte is the NAV number,
+                                           so this is NAV 1 (if it were nav6,
+                                           the second byte should be 6, or
+                                           the Kilrathi will recognise you).
+                                           To make normal battles
+                                           insert 255 instead. 
+                                           For more info see next chapter.
+255 255 255 255 255  13   0 255 255   3   0   4                  
+  0   5   0 255 255 255 255 255 255 255 255 255         
+
+NOTE: It works ONLY when you're flying the Dralthi.
+
+I) NavPoint Manipulation
+
+For better comprehension, here are all nav points of S12 M3 of Wc1:
+
+
+ 46  84 105 103 101 114  39 115  32  67 108  97        .Tiger's Cla
+119  32  49   0   0   0   0   0   0   0   0   0        w 1
+  0   0   0   0   0   0   1   0   0   0   0   0              
+                         ---
+
+  0   0   0   0   0   0   0  32  78 255   0 255                N
+  0 255   0 255   0   8   0 255 255   0   0   3                   
+  0   4   0 255 255 255 255 255 255 255 255 255         
+255 255 255 255 255  46  84 105 103 101 114  39             .Tiger'
+115  32  67 108  97 119  32  50   0   0   0   0        s Claw 2
+  0   0   0   0   0   0   0   0   0   0   0   0
+  0 180 226 255   0  16  39   0   0 208 138 255         ¦_  '  -è
+ 32  78 255   0 255   0 255   0 255   0   8   0         N
+255 255   0   0   3   0   4   0 255 255 255 255             
+255 255 255 255 255 255 255 255 255 255  46  84                  .T
+105 103 101 114  39 115  32  67 108  97 119  32        iger's Claw
+ 51   0   0   0   0   0   0   0   0   0   0   0        3
+  0   0   0   0   0   0 104 197 255   0  32  78              h+   N
+  0   0 160  21 255  32  78 255   0 255   0 255   =    á§  N
+  0 255   0   8   0  12   0   0   0  12   0  13
+  0  14   0  15   0 255 255 255 255 255 255 255          ¤
+255 255 255  82 101 110 100 101 122 118 111 117           Rendezvou
+115   0   0   0   0   0   0   0   0   0   0   0        s
+  0   0   0   0   0   0   0   0   0   0   0 224                   _
+177 255   0 168  97   0   0 128 199 254  32  78        _  ¿a  Ç¦_ N
+  0   6 255   0 255   0 255   0   8   0  12   0         
+  0   0  12   0  13   0  14   0  15   0 255 255               ¤
+255 255 255 255 255 255 255 255  78  97 118  32                Nav
+ 49   0   0   0   0   0   0   0   0   0   0   0        1
+  0   0   0   0   0   0   0   0   0   0   0   0
+  0   0   1   0 192  99 255   0  16  39   0   0           +c  '
+
+  0   0   0  16  39   0   0   1   1   0   2   0           '   
+                      -------------------------
+	
+  3  23   0 255 255   5   0 255 255 255 255 255           
+---
+
+255 255 255 255 255 255 255 255 255 255 255 255
+255  78  97 118  32  50   0   0   0   0   0   0         Nav 2
+  0   0   0   0   0   0   0   0   0   0   0   0   =
+  0   0   0   0   0   0   0   1   0 160  21 255                á§
+  0 152  58   0   0 224 177 255 152  58   0   0         ÿ:  __ ÿ:
+  0   1   1   2   0   3  23   0  13   0   6   0             
+  7   0   8   0 255 255 255 255 255 255 255 255
+255 255 255 255 255 255  78  97 118  32  51   0              Nav 3
+  0   0   0   0   0   0   0   0   0   0   0   0
+  0   0   0   0   0   0   0   0   0   0   0   0
+  1   0 176  60 255   0  32  78   0   0  40  41         _<   N  ()
+255 152  58   0   0   0   1   0   2   1   3  17         ÿ:    
+  0  10   0   9   0  10   0  11   0 255 255 255           	
+255 255 255 255 255 255 255 255 255 255 255   0
+
+Note that:
+
+- Tiger's Claw 1 is nav 0
+- Tiger's Claw 2 is nav 1
+etc ...
+
+Now, pay attention at the underlined part at "Nav 1" (in fact nav4):
+"0 0 1 1 0 2 0 3"
+
+Now, let's organize it in pairs:
+"0 0"  "1 1"  "0 2"  "0 3"
+
+- The first byte is a switch: 0 off (disappear); 1 on (appear)
+- The second byte is the nav point
+
+This means that when you arrive at "NAV 1" (nav4 actually), nav 0 will 
+disappear, nav 1 appears, and 2 and 3 disappear. This gives the effect of
+seeing the Claw going from it's original position to Rendezvous.
+It is also used to create the illusion of you going to clear NAVs 1, 2 and 3,
+and then NAV 1 again.  
+
+Note that only the first nav in that specific nav group can be the "Dominant"
+nav point, having a "1" before the coordinates (see ".Tiger's Claw 1").
+
+IMPORTANT: This can also be used in Wc2, I forgot to put it on the WC2 file.
+---------  The bytes that do this in Wc2 are the ones after the "Jump Point"
+           bytes.
+-------------------------------------------------------------------------------------------------
+
+
+X) The view of a nav point (2nd part of the mission)
+
+ 78  97 118  32  49   0   0   0   0   0   0   0        Nav 1
+  0   0   0   0   0   0   0   0   0   0   0   0
+  0   0   0   0   0   0   1   0  48 117   0   0               0u
+                         ---     ------
+120 236 255   0 152  58   0 152  58 255   0 255        x_  ÿ: ÿ:
+-----------     -------     ------- ------- ---
+  0 255   0 255   0  10   0 255 255   5   0   6                  
+ -- ------- -------  --               -       -
+  0   7   0 255 255 255 255 255 255 255 255 255
+      -
+
+
+Here's what up (underlined stuff):
+
+  The first 1 is connected to nav point maniputation. Check that chapter out.
+  Then, the 48 117, 120 236 255 and the first 152 58 0 are the coordinates, I think.(X,Z,Y)
+(it's odd, I only found X and Y coordinates on Wc2. Umm... Could Wc1 be more complete than wc2?)
+  As for the next 152 58, I don't have a clue. Don't change it.
+  Then the four 255 0 are also connected with nav manipulation.
+  The 10 is the Dralthi (check list). It means that the pic of the Dralthi will have to
+be loaded to memory.
+  Those 5,6 and 7 mean that ships 5, 6, and 7 will appear in this nav, which mean that
+the ships 5,6 and 7 are either a) ships type 10 (Dralthi) or b) ships like the one you're
+flying. Don't forget that the ship you're flying is always loaded to memory, so if you were
+flying a Dralthi, you could replace the 10 0 with 255 255, meaning "don't load any ship".
+
+
+
+Z) All about ships
+
+           -- IFF          -- Orders
+          |               |
+ 10   0   1   0   5   0   4   0   0   0   0   0
+  0   0   0   0   0   0   0   0   0 100   0   0 <-  Coordinates are
+  0   0   0   2  20   0   1   0   0   0   0   0 <-  here somewhere
+  0   0   0   5   2   5           |
+              |   |   |            -- Pilot
+               -------+--Victim
+                  |
+                   --------Formation (not sure, but it makes sense. Looks a lot like WC2)
+
+
+  Orders:
+
+0 or 2- Attack
+  4 - Follow
+  6 - Jump out
+  7 - Jump in
+
+  I tried to make this file as complete and clear as possible, but if you don't understand 
+something or found something I missed, E-Mail me. For more info, you could take a peek at 
+the Wc2 file, since the two games are a lot alike. The two files complete each other. You 
+could try to peek at original Wc1 missions and try to understand what happens. After you do,
+it becomes a lot easier to make new missions.
+
+
+				Mario Brito
+	                   nop03079@mail.telepac.pt
+				 PORTUGAL

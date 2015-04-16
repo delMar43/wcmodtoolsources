@@ -1,0 +1,17 @@
+5: 9 9 14 19 3
+first is always empty
+
+0: pilot dying frames
+1: pilot ejecting frames
+2: pilot floating in space frames
+3: hand moving joystick frames
+  1: centered
+  2-5: back
+  6-9: left
+  10-13: right
+  14-17: forward
+  18: pilot arm
+  
+4:
+  1: pilot giving the finger
+  2: pilot giving thumbs up

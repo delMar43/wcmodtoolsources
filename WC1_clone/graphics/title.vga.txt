@@ -1,0 +1,84 @@
+18 primaries
+
+0: 4 secondaries
+  0: empty
+  1-3: chunks of wing commander logo
+  
+1: 61 secondaries
+  0: empty
+  1-26: upper case letters
+  27-32: no size
+  33-58: lower case letters
+  59: period
+  60: comma
+  
+2: 3 secondaries
+  0: empty
+  1: big tigers' claw
+  2: green beam
+
+3: 2 secondaries
+  0: empty
+  1: big blue planet
+
+4: 4 secondaries
+  empty
+  start Vega
+  continue campaign
+  start secret missions
+  
+5: 19 secondaries
+  0: empty
+  1-18: soldiers putting up flag frames
+  
+6: 5 secondaries
+  0: empty
+  1: starfield
+  2-3: chunks of Origin logo
+  4: FX(tm)
+  
+7: 14 secondaries
+  0: data
+  1-13: silhouettes of three people playing frames
+  
+8: 10 secondaries
+  0: data
+  1-9: silhouette of bass man playing frames
+  
+9: 4 secondaries
+  0: data
+  1-3: piano lady silhouette frames
+  
+10: 8 secondaries
+  0: data
+  1-7: three bass players heads frames
+  
+11: 6 secondaries
+  0: data
+  1-5: brass frames
+  
+12: 4 secondaries
+  0: data
+  1-3: woodwind frames
+  
+13: 6 secondaries
+  0: data
+  1-5: blank
+
+14: 6 secondaries
+  0: data
+  1-5: blank
+  
+15: 5 secondaries
+  0: data
+  1-4: blank
+
+16: 22 secondaries
+  0: data
+  1-21: conductor frames
+
+17: 25 secondaries
+  0: data
+  1-8: red firework frames
+  9-16: green firework frames
+  17-24: blue firework frames

@@ -1,0 +1,114 @@
+11 primaries
+
+0: 7 secondaries
+  0: empty
+  1: briefing room background
+  2: vague nav map background
+  3: button on wall
+  4: four block pattern on wall
+  5: wide shot button on wall
+  6: briefing pilots in crowd
+
+1: 24 secondaries
+  0: empty
+  1-22: little halcyon gesturing frames
+  23: podium
+  
+
+2: 17 secondaries
+  0: empty
+  1-16: mid range halcyon pointing to nav map frames
+
+3: 11 secondaries
+  0: empty
+  1-10: halcyon mouth moving frames
+
+4: 13 secondaries
+  0: data
+  1-12: pilot back standing up frames
+
+5: 11 secondaries
+  0: empty
+  1-10: backs of pilots' heads
+  
+6: 28 secondaries
+  0: empty
+  1: debriefing background behind halcyon
+  2: debriefing background behind pilots
+  3: horizontal segment of debriefing background behind halcyon
+  4: vertical segment of debriefing background behind halcyon
+  5: floor segment?
+  6: larger floor segment
+  7: Blair's back, no head
+  8: Blair's back, with head
+  9: Midrange Halcyon
+  10-17: Back of pilot's head
+  18-27: Small Halcyon's head talking frames
+    
+7: 10 secondaries
+  0: empty
+  1: Halcyon's door
+  2: green bar between two green wall segments; window?
+  3: big green wall with machinery
+  4: Halcyon's desk in front of windows
+  5: Little Halcyon torso
+  6: Little Halcyon standing
+  7: Little Halcyon facing away
+  8: Little Halcyon facing away, looking over shoulder
+  9: Bluehair from behind with helmet under arm
+
+8: 46 secondaries
+  0: empty
+  1-11: Halcyon facing Blair at ceremony, talking frames
+  12: pilot's jacket
+  13: hand
+  14: three blue spots
+  15: three red spots
+  16: alternating blue and gold spots
+  17: red and white stripes
+  18: gold bar
+  19: blue white blue white red white blue white blue
+  20: red
+  21: blue white blue
+  22: red white red
+  23: blue white green white blue
+  24: green with stripes
+  25: orange green blue orange green
+  26: gold green
+  27: grey orange green
+  28: red orange green
+  29: bronze star
+  30: silver star
+  31: gold star
+  32: gold sun
+  33: pewter planet
+  34: 2nd Lt.
+  35: 1st Lt.
+  36: Captain
+  37: Major
+  38: Lt. Colonel
+  39-41: Applause frames
+  42: Large crowd at attention
+  43: guard on left
+  44: left(?) closed door
+  45: right(?) closed door
+    
+9: 13 secondaries
+  0: empty
+  1: landing deck with casket
+  2: flag
+  3: crowd of suits
+  4: suits saluting
+  5: firing squad unarmed
+  6: firing squad about to fire
+  7: corner of a box with a planet and ring logo
+  8: girder
+  9: casket
+  10: bullet
+  11: big blue helmet, full face
+  12: blue suit hand saluting
+  
+10: 3 secondaries
+  0: empty
+  1: observation windows of landing deck
+  2: lights from ceiling (landing bay?)

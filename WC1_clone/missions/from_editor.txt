@@ -1,0 +1,118 @@
+Actual mission file is six blocks, not four
+Block 1 is 0x600 long, 64 slots of 24 bytes each, one per mission with some extra slots
+Fifth block is wing names, not sure where used
+Sixth block is system names, not sure where used
+
+First block in editor
+
+0-1: wingman 1
+2-3: wingman 2
+4-5: wingman 3
+6-7: wingman 4
+8-9: wingman 5
+ship numbers, 0xFFFF if none
+
+
+Second block
+77 bytes per nav point
+
+0-29:
+Nav point label
+
+30-31:
+1: dominant
+0: manipulated
+2-4: follow-up
+
+32-34: x coord
+36-38: y coord
+40-42: z coord
+NOTE: x&y coordinates have odd formatting for signing numbers, see editor code for more details
+z is always positive
+higher-order bytes come later
+
+45-46
+47-48
+49-50
+51-52
+Manipulation bytes, four pairs for up to four actions
+First byte defines action, 0 turns off, 1 turns on, 255 does nothing
+Second byte defines target nav point
+If a nav turns itself on, SM2 treats it like a stealth mission if you're flying a Dralthi; amusing hack
+
+53-54:
+Image 1
+
+55-56:
+Image 2
+
+57-76:
+Ten ships, two bytes per ship
+
+
+
+
+Third block:
+64 bytes per nav map entry
+
+0-1:
+icon
+0: green square (nav point)
+1: white triangle (claw) 
+2: purple cross (escort)
+3: green circle (reach ship)
+4: red circle (destroy ship)
+255: inactive
+
+2-3:
+number of either nav or ship represented
+
+4-64:
+Navmap label
+
+
+Fourth block
+42 bytes per ship
+
+0-1:
+ship type
+
+2-3:
+IFF
+
+6-7:
+orders
+  0: attack ship [primary target] and ship [secondary target]
+  2: attack ship [primary target] and ship [secondary target]
+  4: follow ship[primary target]
+  6: jump out at nav [primary target]
+  7: jump in and head for [primary target]
+  255: inactive
+  
+10-12: x coord
+14-16: y coord
+18-20: z coord
+NOTE: x&y coordinates have odd formatting for signing numbers, see editor code for more details
+z is always positive
+higher-order bytes come later
+
+28:
+speed/10
+
+29:
+size (primarily for fields)
+
+32:
+pilot
+
+39:
+secondary target
+
+40:
+formation
+
+41:
+primary target
+
+
+

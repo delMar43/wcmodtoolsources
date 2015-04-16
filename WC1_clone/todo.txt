@@ -1,0 +1,21 @@
+head engine:
+  make briefings and debriefings work
+  make remaining branch conditions work
+  interpolate remaining variables
+  make text colors and font correct
+  fix expression locations
+  
+graphics:  
+  re-document graphics format thus far
+  write graphic repackager
+  write graphic exporter
+
+create bar engine
+
+decode midgame video instruction format
+decode sound
+decode saved games
+decode font files
+write mission extractor/repackager
+write taunt extractor/repackager
+

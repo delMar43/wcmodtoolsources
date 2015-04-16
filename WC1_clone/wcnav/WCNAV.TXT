@@ -1,0 +1,71 @@
+Wing Commander Bitmap Navigator (WCNAV) v4                           23-AUG-1999
+by Maciek Korzeniowski <matrix3d@polbox.com>
+
+
+What does WCNAV do?
+-------------------
+WCNAV was made as an all purpose graphics viewer for the Wing Commander series
+of games.  Currently it is able to autodetect nearly all WC1 and WC2 graphics in
+VGA and Vnn files (where nn is a two digit number).  This includes WC Academy,
+Secret Missions 1/2 and Special Operations 1/2.  It also detects most Privateer
+graphics in IFF, PAK and SHP files.  Armada SHP files have also been viewed
+successfully with WCNAV.  Support for Armada IFF files is limited to cockpits.
+Aside from auto-detection, WCNAV allows for manual browsing of files in search
+or graphics.
+
+Note: Some Privateer and Armada images, even though decoded correctly, use
+      palettes not yet available in WCNAV.
+
+
+Running WCNAV
+-------------
+WCNAV should be invoked from the DOS propmt (aka. command line).  It requires
+DPMI and runs fine under Win9x.  It hasn't been tested under WinNT.  In theory
+it can be run under DOS with the GO32-V2 extender, available with the DJGPP
+distribution at <www.djdelorie.com>
+
+
+Instructions
+------------
+Just run WCNAV for syntax and keys.
+
+
+Specs
+-----
+WCNAV was compiled under DJGPP v2.01.
+WCNAV.EXE should be 67072 bytes long.  
+Algorithms used in WCNAV are explained in WC1G.TXT
+
+
+Future Enhancements
+-------------------
+- Provide an interface allowing to switch directories and pick files to view.
+  This would eliminate the need to enter a new filename each time.
+- Allow browsing of TRE file structures for Privateer and Armada.
+- Added support for Armada, WC3, WC4 and Prophecy/Secret Ops textures and
+  possibly 3D meshes.
+- Decode Armada VGA files.
+- Encoding and writing of user images graphics to replace in game graphics.
+
+
+Acknowledgements
+----------------
+I'd like to thank Chris Roberts for creating the Wing Commander universe.
+Thanks also goes to Origin Systems for making the game a reality.
+I'd also like to thank Mario "HCl" Brito.  Without his work in deciphering WC
+ship formats, further work and WCNAV would not have been possible.
+
+
+Copyright
+---------
+This program is Freeware.  It is dedicated to all Freeware authors.  Sources are
+included and I retain no copyright to the program.  Feel free to do anything
+with it.
+
+
+Disclaimer
+----------
+Use of this program is completely at your own risk.  I have made every effort
+to debug WCNAV and have tested it on my own machine.  However, I cannot be held
+liable for any damage caused by the use and/or misuse of my program.  By
+executing and using WCNAV.EXE you understand and agree to these terms.

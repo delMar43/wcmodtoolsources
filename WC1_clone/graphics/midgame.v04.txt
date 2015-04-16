@@ -1,0 +1,23 @@
+Mid-game cutscene, both trees, burnt city
+
+7 primaries
+
+0: 9 secondaries
+  0: empty
+  1: burnt out city background
+  2: burnt out city midground
+  3: burnt out city foreground
+  4-8: blank
+
+1: 0 secondaries
+  
+2: 2 secondaries
+  0: one pixel
+  1: bug
+
+3: 0 secondaries
+4: 0 secondaries
+5: 0 secondaries
+ 
+6: 2 secondaries
+  both data
